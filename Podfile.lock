@@ -1,0 +1,61 @@
+PODS:
+  - AWSCloudWatch (2.5.2):
+    - AWSCore (= 2.5.2)
+  - AWSCognito (2.5.2):
+    - AWSCore (= 2.5.2)
+  - AWSCognitoIdentityProvider (2.5.2):
+    - AWSCore (= 2.5.2)
+  - AWSCore (2.5.2)
+  - AWSDynamoDB (2.5.2):
+    - AWSCore (= 2.5.2)
+  - AWSEC2 (2.5.2):
+    - AWSCore (= 2.5.2)
+  - AWSLambda (2.5.2):
+    - AWSCore (= 2.5.2)
+  - AWSS3 (2.5.2):
+    - AWSCore (= 2.5.2)
+  - AWSSES (2.5.2):
+    - AWSCore (= 2.5.2)
+  - AWSSimpleDB (2.5.2):
+    - AWSCore (= 2.5.2)
+  - AWSSNS (2.5.2):
+    - AWSCore (= 2.5.2)
+  - AWSSQS (2.5.2):
+    - AWSCore (= 2.5.2)
+  - NoChat (0.3.2)
+  - SkyFloatingLabelTextField (2.0.1)
+
+DEPENDENCIES:
+  - AWSCloudWatch
+  - AWSCognito
+  - AWSCognitoIdentityProvider
+  - AWSDynamoDB
+  - AWSEC2
+  - AWSLambda
+  - AWSS3
+  - AWSSES
+  - AWSSimpleDB
+  - AWSSNS
+  - AWSSQS
+  - NoChat (~> 0.3)
+  - SkyFloatingLabelTextField (~> 2.0.0)
+
+SPEC CHECKSUMS:
+  AWSCloudWatch: 765c1878c5005328acb24e15e523f98755ab90c0
+  AWSCognito: a29c52e3a3d4988f01b449c8b229a51b73d1c1bf
+  AWSCognitoIdentityProvider: 496a5d717180e4127f038be3c6494bc59e8ff4dd
+  AWSCore: b2fe455c2c7d6653521238c5b0b0ddb67ec4f063
+  AWSDynamoDB: 311ba51593276a198f8a611c9e89706bd0fe740f
+  AWSEC2: 0d88da0cb9d9d900a5b1e62f97a2365075b301fd
+  AWSLambda: 330b7bddbb34632de02b31536cb7f7c10546dfc4
+  AWSS3: 1f53d780bae0a5949f11da99520c14684bc90af0
+  AWSSES: 01c1bd6953d7c3b8e2698ff6c30fc9b111c1c656
+  AWSSimpleDB: ba37cce420e00c9400bd62a54740dfc7083fc9d0
+  AWSSNS: 3437c505bfb8d5eda6bfc497368462ae31423324
+  AWSSQS: 558aac70d0c908fa5f3b043410243595e4100ff4
+  NoChat: aaa980b8b29c0db8c8bd8ecde22e718cc8ad1bf7
+  SkyFloatingLabelTextField: 070e749632ffd608d6fd9db3fa488a822524997c
+
+PODFILE CHECKSUM: 7dc04002b1fed0e57f763f3d1b75e5a637133f44
+
+COCOAPODS: 1.2.0

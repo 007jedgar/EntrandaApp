@@ -7,14 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40A9CB7A2C6734EC89541C57 /* Pods_EntrandaApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1AD94A4ABBD68B0AD53386 /* Pods_EntrandaApp.framework */; };
 		AB1661011E98378000E5B1E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1661001E98378000E5B1E5 /* AppDelegate.swift */; };
 		AB1661031E98378000E5B1E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1661021E98378000E5B1E5 /* ViewController.swift */; };
 		AB1661061E98378000E5B1E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB1661041E98378000E5B1E5 /* Main.storyboard */; };
 		AB1661081E98378000E5B1E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB1661071E98378000E5B1E5 /* Assets.xcassets */; };
 		AB16610B1E98378000E5B1E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB1661091E98378000E5B1E5 /* LaunchScreen.storyboard */; };
+		AB6323181E98445A0077B993 /* LocalGuidesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6323171E98445A0077B993 /* LocalGuidesTableViewController.swift */; };
+		AB63231A1E9844A30077B993 /* MessageThreadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6323191E9844A30077B993 /* MessageThreadTableViewController.swift */; };
+		AB63231C1E9AC2500077B993 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63231B1E9AC2500077B993 /* DataModels.swift */; };
+		AB7686461E9AC49400C7EA3D /* LocalGuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7686451E9AC49400C7EA3D /* LocalGuideCell.swift */; };
+		AB7686481E9AC68B00C7EA3D /* LetsGoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7686471E9AC68B00C7EA3D /* LetsGoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C1AD94A4ABBD68B0AD53386 /* Pods_EntrandaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EntrandaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAD30965465D8AA787851EBD /* Pods-EntrandaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntrandaApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EntrandaApp/Pods-EntrandaApp.debug.xcconfig"; sourceTree = "<group>"; };
 		AB1660FD1E98378000E5B1E5 /* EntrandaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EntrandaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB1661001E98378000E5B1E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB1661021E98378000E5B1E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +30,12 @@
 		AB1661071E98378000E5B1E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB16610A1E98378000E5B1E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB16610C1E98378000E5B1E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB6323171E98445A0077B993 /* LocalGuidesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGuidesTableViewController.swift; sourceTree = "<group>"; };
+		AB6323191E9844A30077B993 /* MessageThreadTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageThreadTableViewController.swift; sourceTree = "<group>"; };
+		AB63231B1E9AC2500077B993 /* DataModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
+		AB7686451E9AC49400C7EA3D /* LocalGuideCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGuideCell.swift; sourceTree = "<group>"; };
+		AB7686471E9AC68B00C7EA3D /* LetsGoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetsGoViewController.swift; sourceTree = "<group>"; };
+		E530286F4AD61DDCA9B288C9 /* Pods-EntrandaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntrandaApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-EntrandaApp/Pods-EntrandaApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40A9CB7A2C6734EC89541C57 /* Pods_EntrandaApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62F7096469A96C86390BA565 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C1AD94A4ABBD68B0AD53386 /* Pods_EntrandaApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8621797CFCDC87254E1CB5F8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AAD30965465D8AA787851EBD /* Pods-EntrandaApp.debug.xcconfig */,
+				E530286F4AD61DDCA9B288C9 /* Pods-EntrandaApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AB1660F41E98378000E5B1E5 = {
 			isa = PBXGroup;
 			children = (
 				AB1660FF1E98378000E5B1E5 /* EntrandaApp */,
 				AB1660FE1E98378000E5B1E5 /* Products */,
+				8621797CFCDC87254E1CB5F8 /* Pods */,
+				62F7096469A96C86390BA565 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +88,8 @@
 		AB1660FF1E98378000E5B1E5 /* EntrandaApp */ = {
 			isa = PBXGroup;
 			children = (
+				AB63231D1E9AC2620077B993 /* Models */,
+				AB6323161E9844270077B993 /* Views From The 6 */,
 				AB1661001E98378000E5B1E5 /* AppDelegate.swift */,
 				AB1661021E98378000E5B1E5 /* ViewController.swift */,
 				AB1661041E98378000E5B1E5 /* Main.storyboard */,
@@ -64,6 +100,25 @@
 			path = EntrandaApp;
 			sourceTree = "<group>";
 		};
+		AB6323161E9844270077B993 /* Views From The 6 */ = {
+			isa = PBXGroup;
+			children = (
+				AB6323171E98445A0077B993 /* LocalGuidesTableViewController.swift */,
+				AB6323191E9844A30077B993 /* MessageThreadTableViewController.swift */,
+				AB7686471E9AC68B00C7EA3D /* LetsGoViewController.swift */,
+			);
+			name = "Views From The 6";
+			sourceTree = "<group>";
+		};
+		AB63231D1E9AC2620077B993 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AB63231B1E9AC2500077B993 /* DataModels.swift */,
+				AB7686451E9AC49400C7EA3D /* LocalGuideCell.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +126,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB16610F1E98378000E5B1E5 /* Build configuration list for PBXNativeTarget "EntrandaApp" */;
 			buildPhases = (
+				6D82F96AA5288B7032494C78 /* [CP] Check Pods Manifest.lock */,
 				AB1660F91E98378000E5B1E5 /* Sources */,
 				AB1660FA1E98378000E5B1E5 /* Frameworks */,
 				AB1660FB1E98378000E5B1E5 /* Resources */,
+				C98D96CF4E1923F3BEC93FE0 /* [CP] Embed Pods Frameworks */,
+				09733E80BB64F4AFA465E127 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,13 +190,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		09733E80BB64F4AFA465E127 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EntrandaApp/Pods-EntrandaApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D82F96AA5288B7032494C78 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C98D96CF4E1923F3BEC93FE0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EntrandaApp/Pods-EntrandaApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AB1660F91E98378000E5B1E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				AB1661031E98378000E5B1E5 /* ViewController.swift in Sources */,
+				AB63231A1E9844A30077B993 /* MessageThreadTableViewController.swift in Sources */,
+				AB63231C1E9AC2500077B993 /* DataModels.swift in Sources */,
 				AB1661011E98378000E5B1E5 /* AppDelegate.swift in Sources */,
+				AB7686461E9AC49400C7EA3D /* LocalGuideCell.swift in Sources */,
+				AB7686481E9AC68B00C7EA3D /* LetsGoViewController.swift in Sources */,
+				AB6323181E98445A0077B993 /* LocalGuidesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +372,7 @@
 		};
 		AB1661101E98378000E5B1E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAD30965465D8AA787851EBD /* Pods-EntrandaApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JVCXTUSEZC;
@@ -274,6 +386,7 @@
 		};
 		AB1661111E98378000E5B1E5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E530286F4AD61DDCA9B288C9 /* Pods-EntrandaApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JVCXTUSEZC;
@@ -304,6 +417,7 @@
 				AB1661111E98378000E5B1E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
