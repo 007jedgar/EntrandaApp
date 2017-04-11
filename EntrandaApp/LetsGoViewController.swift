@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseDatabase
+import FirebaseStorage
 
 class LetsGoViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
