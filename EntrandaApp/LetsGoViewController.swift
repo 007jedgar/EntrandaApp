@@ -62,7 +62,7 @@ class LetsGoViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func populatePickerView() {
-        let tags = ["fun","Food", "Atractions", "Exhibits", "Art"]
+        let tags = ["Fun", "Food", "Wine", "Music", "Atractions", "Exhibits", "Art", "Random","Fashion", "Gardens", "Beer", "Sports"]
         
         for tag in tags {
             self.pickerData.append(tag)
@@ -72,6 +72,7 @@ class LetsGoViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBAction func letsGoButtonPressed(_ sender: Any) {
         
+        performSegue(withIdentifier: "toGuidesSeque", sender: nil)
     }
 }
 

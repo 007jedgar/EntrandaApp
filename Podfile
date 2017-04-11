@@ -8,18 +8,14 @@ target 'EntrandaApp' do
   use_frameworks!
 
   # Pods for EntrandaApp
-    pod 'AWSCloudWatch'
-    pod 'AWSCognito'
-    pod 'AWSCognitoIdentityProvider'
-    pod 'AWSDynamoDB'
-    pod 'AWSEC2'
-    pod 'AWSLambda'
-    pod 'AWSS3'
-    pod 'AWSSES'
-    pod 'AWSSimpleDB'
-    pod 'AWSSNS'
-    pod 'AWSSQS'
+    pod 'Firebase/Core'
+    pod 'Firebase/Messaging'
+    pod 'Firebase/Database'
+    pod 'Firebase/DynamicLinks'
+    pod 'Firebase/Storage'
+    pod 'Firebase/Auth'
     
+    pod 'Kingfisher', '~> 3.0'
     pod 'SkyFloatingLabelTextField', '~> 2.0.0'
     pod 'NoChat', '~> 0.3'
 end

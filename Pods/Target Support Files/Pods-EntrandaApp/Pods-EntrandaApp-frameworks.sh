@@ -89,35 +89,19 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/AWSCloudWatch/AWSCloudWatch.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSCognito/AWSCognito.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSCore/AWSCore.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSDynamoDB/AWSDynamoDB.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSEC2/AWSEC2.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSLambda/AWSLambda.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSS3/AWSS3.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSSES/AWSSES.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSSNS/AWSSNS.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSSQS/AWSSQS.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSSimpleDB/AWSSimpleDB.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/GTMSessionFetcher/GTMSessionFetcher.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/GoogleToolboxForMac/GoogleToolboxForMac.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Kingfisher/Kingfisher.framework"
   install_framework "$BUILT_PRODUCTS_DIR/NoChat/NoChat.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Protobuf/Protobuf.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/AWSCloudWatch/AWSCloudWatch.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSCognito/AWSCognito.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSCore/AWSCore.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSDynamoDB/AWSDynamoDB.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSEC2/AWSEC2.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSLambda/AWSLambda.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSS3/AWSS3.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSSES/AWSSES.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSSNS/AWSSNS.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSSQS/AWSSQS.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/AWSSimpleDB/AWSSimpleDB.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/GTMSessionFetcher/GTMSessionFetcher.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/GoogleToolboxForMac/GoogleToolboxForMac.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Kingfisher/Kingfisher.framework"
   install_framework "$BUILT_PRODUCTS_DIR/NoChat/NoChat.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Protobuf/Protobuf.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

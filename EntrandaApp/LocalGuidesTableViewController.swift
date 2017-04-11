@@ -12,7 +12,7 @@ class LocalGuidesTableViewController: UIViewController,
 UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    var guides = [DataModels]()
+    var guides = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -34,6 +35,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" red="0.97780817750000004" green="0.86231154200000004" blue="0.86283129449999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="muy-kC-Ae7" kind="presentation" identifier="SignIn" id="2LC-mD-Kp3"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -95,7 +99,7 @@
                                     </connections>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="v3Z-Ng-jHT" kind="show" id="u0g-vK-K2K">
+                                    <segue destination="v3Z-Ng-jHT" kind="show" identifier="chatView" id="u0g-vK-K2K">
                                         <nil key="action"/>
                                     </segue>
                                 </connections>
@@ -110,7 +114,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOv-SR-yGw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4674.3999999999996" y="289.20539730134936"/>
+            <point key="canvasLocation" x="5169" y="272"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="fKu-qS-QhE">
@@ -128,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZMc-Lb-uDg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5550" y="289"/>
+            <point key="canvasLocation" x="5946" y="273"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="MTL-8l-XhQ">
@@ -142,22 +146,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LFo-nr-sxz" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LFo-nr-sxz" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                 <rect key="frame" x="51" y="70" width="272" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.76213338707843659" blue="0.74636034280945274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="KdS-y5-ajn"/>
+                                </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N9n-mu-7Ji">
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9n-mu-7Ji">
                                 <rect key="frame" x="64" y="181" width="246" height="152"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.95589882135391235" green="0.53355592489242554" blue="0.53173422813415527" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJf-5P-NNb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJf-5P-NNb">
                                 <rect key="frame" x="77" y="372" width="233" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.41399786751908407" blue="0.38088422788018783" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="19a-oM-Ny5"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="33"/>
                                 <state key="normal" title="Let's Go!">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -166,16 +174,32 @@
                                     <action selector="letsGoButtonPressed:" destination="Hpq-Sj-Twa" eventType="touchUpInside" id="cFQ-id-GBV"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PHE-Lr-jMS" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PHE-Lr-jMS" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                 <rect key="frame" x="51" y="130" width="272" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.97576087713241577" green="0.75898599624633789" blue="0.74223524332046509" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="Qj6-zM-3vV"/>
+                                </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.95589882140000004" green="0.53355592490000003" blue="0.53173422810000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LFo-nr-sxz" firstAttribute="top" secondItem="sEq-3i-XM5" secondAttribute="bottom" constant="50" id="HyZ-pM-Tpt"/>
+                            <constraint firstItem="N9n-mu-7Ji" firstAttribute="top" secondItem="PHE-Lr-jMS" secondAttribute="bottom" constant="8" symbolic="YES" id="JDd-2n-8rC"/>
+                            <constraint firstItem="PHE-Lr-jMS" firstAttribute="top" secondItem="LFo-nr-sxz" secondAttribute="bottom" constant="17" id="JfY-EO-U0o"/>
+                            <constraint firstItem="LFo-nr-sxz" firstAttribute="leading" secondItem="PHE-Lr-jMS" secondAttribute="leading" id="KqV-VD-oWh"/>
+                            <constraint firstItem="N9n-mu-7Ji" firstAttribute="trailing" secondItem="iJf-5P-NNb" secondAttribute="trailing" id="Kqa-4X-AhN"/>
+                            <constraint firstItem="PHE-Lr-jMS" firstAttribute="centerX" secondItem="N9n-mu-7Ji" secondAttribute="centerX" id="LtI-FX-9JQ"/>
+                            <constraint firstItem="LFo-nr-sxz" firstAttribute="centerX" secondItem="pGk-AE-kdE" secondAttribute="centerX" id="Qaf-aJ-BLf"/>
+                            <constraint firstItem="N9n-mu-7Ji" firstAttribute="leading" secondItem="pGk-AE-kdE" secondAttribute="leadingMargin" constant="48" id="Rz7-sp-75f"/>
+                            <constraint firstItem="LFo-nr-sxz" firstAttribute="trailing" secondItem="PHE-Lr-jMS" secondAttribute="trailing" id="TNh-9f-ySO"/>
+                            <constraint firstItem="iJf-5P-NNb" firstAttribute="leading" secondItem="pGk-AE-kdE" secondAttribute="leadingMargin" constant="61" id="WrC-qL-Rv1"/>
+                            <constraint firstItem="fGW-kB-zPE" firstAttribute="top" secondItem="iJf-5P-NNb" secondAttribute="bottom" constant="198" id="feJ-EU-ggY"/>
+                            <constraint firstItem="iJf-5P-NNb" firstAttribute="top" secondItem="N9n-mu-7Ji" secondAttribute="bottom" constant="39" id="wu5-E6-2vC"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="fQm-9x-Vza"/>
                     <connections>
@@ -183,6 +207,7 @@
                         <outlet property="locationTextField" destination="PHE-Lr-jMS" id="lrG-Rg-gTz"/>
                         <outlet property="nameTextField" destination="LFo-nr-sxz" id="vfA-mU-Pjx"/>
                         <outlet property="tagPicker" destination="N9n-mu-7Ji" id="vO3-zI-uc4"/>
+                        <segue destination="33q-58-7Im" kind="show" identifier="toGuidesSeque" id="nGg-b8-7Y7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bll-Qv-GGr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -202,10 +227,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.95589882140000004" green="0.53355592490000003" blue="0.53173422810000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <segue destination="0yE-Vi-8hd" kind="show" identifier="inbox" id="6XQ-AW-wme"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nWg-zc-XdG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4674" y="1033"/>
+            <point key="canvasLocation" x="4364" y="714"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="s7t-ga-FNt">
@@ -227,4 +255,8 @@
             <point key="canvasLocation" x="2671" y="258"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ufc-QI-HcF"/>
+        <segue reference="6XQ-AW-wme"/>
+    </inferredMetricsTieBreakers>
 </document>
