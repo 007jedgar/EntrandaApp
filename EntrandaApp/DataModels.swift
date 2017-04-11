@@ -57,8 +57,8 @@ class MessageThread {
 class Message {
     
     var id = String()
-    var owner = DataModel()
-    var members = [DataModel]()
+    var roomOwner = User()
+    var members = [User]()
     
     
 }

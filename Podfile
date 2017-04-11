@@ -8,13 +8,12 @@ target 'EntrandaApp' do
   use_frameworks!
 
   # Pods for EntrandaApp
+
+    pod 'Firebase'
     pod 'Firebase/Core'
-    pod 'Firebase/Messaging'
     pod 'Firebase/Database'
-    pod 'Firebase/DynamicLinks'
     pod 'Firebase/Storage'
     pod 'Firebase/Auth'
-    
     pod 'Kingfisher', '~> 3.0'
     pod 'SkyFloatingLabelTextField', '~> 2.0.0'
     pod 'NoChat', '~> 0.3'

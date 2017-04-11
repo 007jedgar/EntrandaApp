@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'A77CC2086064801820713955BA1276A8'
+               BlueprintIdentifier = 'CE7E49D67F62835CB3EE7C2ED0B7558F'
                BlueprintName = 'Pods-EntrandaApp'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods-EntrandaApp.framework'>
