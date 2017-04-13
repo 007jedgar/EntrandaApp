@@ -13,7 +13,8 @@ import FirebaseStorage
 
 class LocalGuidesTableViewController: UIViewController,
 UITableViewDelegate, UITableViewDataSource {
-    
+    var ref: FIRDatabaseReference!
+
     @IBOutlet weak var tableView: UITableView!
     var guides = [User]()
     
@@ -22,22 +23,31 @@ UITableViewDelegate, UITableViewDataSource {
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        getGuideInfo()
     }
 
+    func getGuideInfo() {
+//        
+//        ref = FIRDatabase.database().reference()
+//        let user = ref.child("User")
+//        guides.append(contentsOf: user)
+//        
+//        refHandle = postRef.observe(FIRDataEventType.value, with: { (snapshot) in
+//            let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+//            
+//            
+//        })
+    }
     
-
     // MARK: - Table view data source
 
      func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return self.guides.count
     }
-
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

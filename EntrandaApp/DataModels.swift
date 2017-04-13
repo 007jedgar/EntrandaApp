@@ -11,55 +11,52 @@ import Foundation
 //users
 class User {
     
+    private var id = String()
     
-    var id = String()
+    var gender = String()
+    var userID = String()
     var email = String()
     var name = String()
-    var imgURL = String()
+    private var profileImgURL = String()
+    private var phoneNumber = String()
+    var rating = Int()
+    var bio = String()
+    var link = String()
+    private var location  = String()
+    private var tags = [String]()
     
-    var location  = String()
-    var tags = [String]()
-    
-    init(name: String, location: String) {
+    init(name: String, location: String, tags: String, phoneNumber: String, email: String, bio: String, gender: String, link: String, userID: String) {
         
         self.name = name
         self.location = location
+        self.tags = [tags]
+        self.phoneNumber = phoneNumber
+        self.email = email
+        self.bio = bio
+        self.gender = gender
+        self.link = link
+        self.userID = userID
+//        self.profileImgURL = profileImgURL         ///later
     }
     
     init() {
-        
     }
 }
 
-//for message thread page
+//for message thread page and chatroom
 class MessageThread {
     
-    var client1 = String()
-    var client2 = String()
+    //for message thread
+    var channelName = String()
+    var newMessages = Int()
     
-    var timeRecieved = Date()
+    //for chatroom
+    var members = [User]()
+    var roomOwner = User()
+    var message1 = [String: String]()
+    var message2 = [String: String]()
+    var senderID = String()
     
-    init(client1: String, client2: String) {
-        self.client1 = client1
-        self.client2 = client2
-    }
-    
-    init(timeRecieved: Date) {
-        self.timeRecieved = timeRecieved
-    }
-    
-    init() {
-        
-    }
 }
 
-//for chatroom
-class Message {
-    
-    var id = String()
-    var roomOwner = User()
-    var members = [User]()
-    
-    
-}
 

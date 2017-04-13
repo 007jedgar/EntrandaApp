@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseCore
 import FirebaseDatabase
 import FirebaseStorage
+
+protocol sendIDDelegate: class {
+    func createSpecialUUID(name: String) -> [String: String]
+}
 
 class LetsGoViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
@@ -18,8 +23,12 @@ class LetsGoViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var tagPicker: UIPickerView!
     @IBOutlet weak var letsGoButton: UIButton!
     
+    var profileDictionary = [String: String]()
+    
     var selectedTag : String?
     var pickerData = [String]()
+    
+    weak var delegate: sendIDDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +42,10 @@ class LetsGoViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         populatePickerView()
         
         letsGoButton.layer.cornerRadius = self.letsGoButton.frame.size.width / 7
+
+    }
+    
+    func annonymosLogin() {
 
     }
 
@@ -73,10 +86,27 @@ class LetsGoViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
+    //Allows User to start a sign in annonymosly
     @IBAction func letsGoButtonPressed(_ sender: Any) {
-        
-        performSegue(withIdentifier: "toGuidesSeque", sender: nil)
+        if nameTextField?.text != "" {
+            FIRAuth.auth()?.signInAnonymously(completion: { (user, error) in
+                if let err = error {
+                    print(err.localizedDescription)
+                    return
+                }
+                
+                self.performSegue(withIdentifier: "toGuidesSeque", sender: nil)
+            })
+        }
     }
+    
+    func createSpecialUUID(name: String) -> [String: String] {
+        
+        let uuid = UUID().uuidString
+        let dictionary = [name: uuid]
+        return dictionary
+    }
+    
 }
 
 

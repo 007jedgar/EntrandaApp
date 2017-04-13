@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LocalGuideCell: UITableViewCell {
+class MessageThreadCell: UITableViewCell {
     
     @IBOutlet weak var profilePictureImgView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -29,3 +29,5 @@ class LocalGuideCell: UITableViewCell {
     }
 
 }
+
+

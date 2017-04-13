@@ -1,37 +1,45 @@
 //
-//  MessageThreadTableViewController.swift
+//  CityGuideTableViewController.swift
 //  EntrandaApp
 //
-//  Created by Jonathan Edgar on 4/7/17.
+//  Created by Jonathan Edgar on 4/12/17.
 //  Copyright © 2017 Jonathan Edgar. All rights reserved.
 //
 
 import UIKit
 import Firebase
 import FirebaseDatabase
-import Kingfisher
 
-class MessageThreadTableViewController: UITableViewController {
+class City {
+    
+    var city = String()
+    var cityID = String()
+    var imgURL = String()
+}
 
-    var ref: FIRDatabaseReference!
-    let threads = [MessageThread]()
+class CityGuideTableViewController: UITableViewController {
+
+    let cities = [City]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        messageThreadPopulate()
-    }
-
-    func messageThreadPopulate() {
-        
-        ref = FIRDatabase.database().reference()
-        
-        ref.child("ChatRoom1").child("messages").child("hello World")
-        
-        
+        populateCityTable()
+        makeCity(cityName: "Houston")
     }
 
 
+    func populateCityTable() {
+        
+        
+        
+    }
+    
+    func makeCity(cityName: String) {
+        
+        
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -41,19 +49,18 @@ class MessageThreadTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.threads.count
+        return cities.count
     }
 
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatThread", for: indexPath) as! MessageThreadCell
-        
-        let thread = self.threads[indexPath.row]
-        cell.nameLabel.text = thread.channelName
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath)
+
+        let city = cities[indexPath.row]
+        cell.textLabel?.text = city.city
         return cell
     }
- 
 
- 
+
 
 }
