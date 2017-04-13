@@ -26,6 +26,11 @@
 		ABFF11541E9D9517004A8BC0 /* SelfProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFF11531E9D9517004A8BC0 /* SelfProfileViewController.swift */; };
 		ABFF11561E9ECCB9004A8BC0 /* EntrandaSimple.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABFF11551E9ECCB9004A8BC0 /* EntrandaSimple.storyboard */; };
 		ABFF11581E9ECD3A004A8BC0 /* CityGuideTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFF11571E9ECD3A004A8BC0 /* CityGuideTableViewController.swift */; };
+		ABFF115B1E9FC3C0004A8BC0 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFF115A1E9FC3C0004A8BC0 /* CityTableViewCell.swift */; };
+		ABFF115F1E9FC69D004A8BC0 /* GuideTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFF115E1E9FC69D004A8BC0 /* GuideTableViewController.swift */; };
+		ABFF11621E9FC77F004A8BC0 /* GuideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFF11611E9FC77F004A8BC0 /* GuideTableViewCell.swift */; };
+		ABFF11641E9FC925004A8BC0 /* GuideProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFF11631E9FC925004A8BC0 /* GuideProfileTableViewController.swift */; };
+		ABFF11661E9FCA49004A8BC0 /* HoustonFromThePark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ABFF11651E9FCA49004A8BC0 /* HoustonFromThePark.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +56,11 @@
 		ABFF11531E9D9517004A8BC0 /* SelfProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfProfileViewController.swift; sourceTree = "<group>"; };
 		ABFF11551E9ECCB9004A8BC0 /* EntrandaSimple.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EntrandaSimple.storyboard; sourceTree = "<group>"; };
 		ABFF11571E9ECD3A004A8BC0 /* CityGuideTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityGuideTableViewController.swift; sourceTree = "<group>"; };
+		ABFF115A1E9FC3C0004A8BC0 /* CityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
+		ABFF115E1E9FC69D004A8BC0 /* GuideTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideTableViewController.swift; sourceTree = "<group>"; };
+		ABFF11611E9FC77F004A8BC0 /* GuideTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideTableViewCell.swift; sourceTree = "<group>"; };
+		ABFF11631E9FC925004A8BC0 /* GuideProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideProfileTableViewController.swift; sourceTree = "<group>"; };
+		ABFF11651E9FCA49004A8BC0 /* HoustonFromThePark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HoustonFromThePark.jpg; sourceTree = "<group>"; };
 		E530286F4AD61DDCA9B288C9 /* Pods-EntrandaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntrandaApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-EntrandaApp/Pods-EntrandaApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +114,7 @@
 		AB1660FF1E98378000E5B1E5 /* EntrandaApp */ = {
 			isa = PBXGroup;
 			children = (
+				ABFF11601E9FC737004A8BC0 /* Simple Entranda Model */,
 				ABFF11591E9ECD4A004A8BC0 /* Simple Entranda Controllers */,
 				ABFF11501E9D948C004A8BC0 /* Profile View Controllers */,
 				AB63231D1E9AC2620077B993 /* Models */,
@@ -111,6 +122,7 @@
 				AB1661001E98378000E5B1E5 /* AppDelegate.swift */,
 				AB1661021E98378000E5B1E5 /* ViewController.swift */,
 				AB1661071E98378000E5B1E5 /* Assets.xcassets */,
+				ABFF11651E9FCA49004A8BC0 /* HoustonFromThePark.jpg */,
 				AB1661091E98378000E5B1E5 /* LaunchScreen.storyboard */,
 				AB16610C1E98378000E5B1E5 /* Info.plist */,
 				ABE79D9D1E9D2E7800DAB662 /* GoogleService-Info.plist */,
@@ -136,7 +148,6 @@
 				AB7686451E9AC49400C7EA3D /* MessageThreadCell.swift */,
 				ABFF114C1E9D516C004A8BC0 /* LocalGuideTableViewCell.swift */,
 				AB1661041E98378000E5B1E5 /* Main.storyboard */,
-				ABFF11551E9ECCB9004A8BC0 /* EntrandaSimple.storyboard */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -155,8 +166,20 @@
 			isa = PBXGroup;
 			children = (
 				ABFF11571E9ECD3A004A8BC0 /* CityGuideTableViewController.swift */,
+				ABFF115E1E9FC69D004A8BC0 /* GuideTableViewController.swift */,
 			);
 			name = "Simple Entranda Controllers";
+			sourceTree = "<group>";
+		};
+		ABFF11601E9FC737004A8BC0 /* Simple Entranda Model */ = {
+			isa = PBXGroup;
+			children = (
+				ABFF115A1E9FC3C0004A8BC0 /* CityTableViewCell.swift */,
+				ABFF11551E9ECCB9004A8BC0 /* EntrandaSimple.storyboard */,
+				ABFF11611E9FC77F004A8BC0 /* GuideTableViewCell.swift */,
+				ABFF11631E9FC925004A8BC0 /* GuideProfileTableViewController.swift */,
+			);
+			name = "Simple Entranda Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +249,7 @@
 				AB16610B1E98378000E5B1E5 /* LaunchScreen.storyboard in Resources */,
 				ABE79D9E1E9D2E7800DAB662 /* GoogleService-Info.plist in Resources */,
 				AB1661081E98378000E5B1E5 /* Assets.xcassets in Resources */,
+				ABFF11661E9FCA49004A8BC0 /* HoustonFromThePark.jpg in Resources */,
 				AB1661061E98378000E5B1E5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,11 +313,15 @@
 				ABFF11521E9D94FA004A8BC0 /* EditProfileViewController.swift in Sources */,
 				AB1661031E98378000E5B1E5 /* ViewController.swift in Sources */,
 				ABFF11581E9ECD3A004A8BC0 /* CityGuideTableViewController.swift in Sources */,
+				ABFF11621E9FC77F004A8BC0 /* GuideTableViewCell.swift in Sources */,
 				ABFF114D1E9D516C004A8BC0 /* LocalGuideTableViewCell.swift in Sources */,
 				ABFF114F1E9D5514004A8BC0 /* ProfileViewController.swift in Sources */,
 				AB63231A1E9844A30077B993 /* MessageThreadTableViewController.swift in Sources */,
 				AB63231C1E9AC2500077B993 /* DataModels.swift in Sources */,
+				ABFF115B1E9FC3C0004A8BC0 /* CityTableViewCell.swift in Sources */,
 				ABFF114B1E9D3CA2004A8BC0 /* ChatRoomViewController.swift in Sources */,
+				ABFF11641E9FC925004A8BC0 /* GuideProfileTableViewController.swift in Sources */,
+				ABFF115F1E9FC69D004A8BC0 /* GuideTableViewController.swift in Sources */,
 				AB1661011E98378000E5B1E5 /* AppDelegate.swift in Sources */,
 				AB7686461E9AC49400C7EA3D /* MessageThreadCell.swift in Sources */,
 				AB7686481E9AC68B00C7EA3D /* LetsGoViewController.swift in Sources */,

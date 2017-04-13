@@ -12,7 +12,7 @@ import FirebaseDatabase
 
 class City {
     
-    var city = String()
+    var cityTitle = String()
     var cityID = String()
     var imgURL = String()
 }
@@ -54,10 +54,11 @@ class CityGuideTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath) as! CityTableViewCell
 
         let city = cities[indexPath.row]
-        cell.textLabel?.text = city.city
+        cell.cityLabel.text = city.cityTitle
+        
         return cell
     }
 
