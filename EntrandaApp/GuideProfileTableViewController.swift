@@ -7,42 +7,50 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class GuideProfileTableViewController: UITableViewController {
+
+        @IBOutlet weak var profileImgView: UIImageView!
+        @IBOutlet weak var nameLabel: UILabel!
+        @IBOutlet weak var locationLabel: UILabel!
+        @IBOutlet weak var bioLabel: UILabel!
+        @IBOutlet weak var phoneNumberLabel: UILabel!
+        @IBOutlet weak var emailLabel: UILabel!
+        @IBOutlet weak var linksLabel: UILabel!
+    
+    var ref: FIRDatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        getDataFromFirebase()
+    }
+    
+    // Get Data from Firebase -> Class/Object
+    func getDataFromFirebase() {
+        
+        ref = FIRDatabase.database().reference()
+        let guideRef = self.ref.child("Guide").child("User Id")
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        guideRef.observe(FIRDataEventType.value, with: { (snapshot: FIRDataSnapshot) in
+
+            let guideData = snapshot.value as? [String: Any]
+            
+            for snap in snapshot.children {
+                print("Found \(snap)")
+                let guideName = guideData?["Name"] as! String
+                print(guideName)
+            }
+        
+        })
     }
 
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    // Populate the guide profile page
+    func populatePage() {
+        
+        
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-
-
+    
 }

@@ -18,6 +18,7 @@
 		AB63231C1E9AC2500077B993 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63231B1E9AC2500077B993 /* DataModels.swift */; };
 		AB7686461E9AC49400C7EA3D /* MessageThreadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7686451E9AC49400C7EA3D /* MessageThreadCell.swift */; };
 		AB7686481E9AC68B00C7EA3D /* LetsGoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7686471E9AC68B00C7EA3D /* LetsGoViewController.swift */; };
+		ABB642AD1E9FF31A00E28A40 /* CreateGuideTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB642AC1E9FF31A00E28A40 /* CreateGuideTableViewController.swift */; };
 		ABE79D9E1E9D2E7800DAB662 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABE79D9D1E9D2E7800DAB662 /* GoogleService-Info.plist */; };
 		ABFF114B1E9D3CA2004A8BC0 /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFF114A1E9D3CA2004A8BC0 /* ChatRoomViewController.swift */; };
 		ABFF114D1E9D516C004A8BC0 /* LocalGuideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFF114C1E9D516C004A8BC0 /* LocalGuideTableViewCell.swift */; };
@@ -48,6 +49,7 @@
 		AB63231B1E9AC2500077B993 /* DataModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		AB7686451E9AC49400C7EA3D /* MessageThreadCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageThreadCell.swift; sourceTree = "<group>"; };
 		AB7686471E9AC68B00C7EA3D /* LetsGoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetsGoViewController.swift; sourceTree = "<group>"; };
+		ABB642AC1E9FF31A00E28A40 /* CreateGuideTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGuideTableViewController.swift; sourceTree = "<group>"; };
 		ABE79D9D1E9D2E7800DAB662 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ABFF114A1E9D3CA2004A8BC0 /* ChatRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
 		ABFF114C1E9D516C004A8BC0 /* LocalGuideTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGuideTableViewCell.swift; sourceTree = "<group>"; };
@@ -166,7 +168,9 @@
 			isa = PBXGroup;
 			children = (
 				ABFF11571E9ECD3A004A8BC0 /* CityGuideTableViewController.swift */,
+				ABFF11631E9FC925004A8BC0 /* GuideProfileTableViewController.swift */,
 				ABFF115E1E9FC69D004A8BC0 /* GuideTableViewController.swift */,
+				ABB642AC1E9FF31A00E28A40 /* CreateGuideTableViewController.swift */,
 			);
 			name = "Simple Entranda Controllers";
 			sourceTree = "<group>";
@@ -175,9 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				ABFF115A1E9FC3C0004A8BC0 /* CityTableViewCell.swift */,
-				ABFF11551E9ECCB9004A8BC0 /* EntrandaSimple.storyboard */,
 				ABFF11611E9FC77F004A8BC0 /* GuideTableViewCell.swift */,
-				ABFF11631E9FC925004A8BC0 /* GuideProfileTableViewController.swift */,
+				ABFF11551E9ECCB9004A8BC0 /* EntrandaSimple.storyboard */,
 			);
 			name = "Simple Entranda Model";
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				AB1661011E98378000E5B1E5 /* AppDelegate.swift in Sources */,
 				AB7686461E9AC49400C7EA3D /* MessageThreadCell.swift in Sources */,
 				AB7686481E9AC68B00C7EA3D /* LetsGoViewController.swift in Sources */,
+				ABB642AD1E9FF31A00E28A40 /* CreateGuideTableViewController.swift in Sources */,
 				AB6323181E98445A0077B993 /* LocalGuidesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
