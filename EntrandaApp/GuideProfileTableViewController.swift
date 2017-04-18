@@ -48,9 +48,9 @@ class GuideProfileTableViewController: UITableViewController {
     }
 
     // Populate the guide profile page
-    func populatePage() {
+    @IBAction func backButtonPressed(_ sender: Any) {
         
-        
+        performSegue(withIdentifier: "GuideProfile", sender: self)
     }
     
 }

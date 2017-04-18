@@ -61,7 +61,7 @@ class CreateGuideTableViewController: UITableViewController, UIImagePickerContro
         user.child("gender").setValue(gender)
         let age = guideInfo.age
         user.child("age").setValue(age)
-        let tourBio = guideInfo.tourInfo
+        let tourBio = guideInfo.tourBio
         user.child("tour bio").setValue(tourBio)
         let phoneNumber = guideInfo.phoneNumber
         user.child("phone number").setValue(phoneNumber)
@@ -70,6 +70,8 @@ class CreateGuideTableViewController: UITableViewController, UIImagePickerContro
         dismiss(animated: true, completion: nil)
         print("sent to DB")
     }
+    
+    
     
     //Gets data from tableview and stores it in class
     @IBAction func getNewGuideInfo(_ sender: Any) {

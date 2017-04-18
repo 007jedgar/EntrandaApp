@@ -23,9 +23,32 @@ class Guide {
     var links = String()
     
     var pricing = String()
-    var tourInfo = String()
+    var tourBio = String()
     var email = String()
     var gender = String()
+    
+    init(snapshot :FIRDataSnapshot) {
+        
+        let snapShotValue = snapshot.value as! [String:Any]
+        
+        guard let email = snapShotValue["email"] as? String,
+              let gender = snapShotValue["gender"] as? String,
+              let age = snapShotValue["age"] as? String,
+              let name = snapShotValue["name"] as? String,
+              let phoneNumber = snapShotValue["phone number"] as? String,
+              let tourBio = snapShotValue["tour bio"] as? String
+        else {
+            fatalError("email is not found")
+        }
+        
+        self.email = email
+        self.gender = gender
+        self.age = age
+        self.name = name
+        self.tourBio = tourBio
+        self.phoneNumber = phoneNumber
+        
+    }
     
     init(name: String, bio: String, age: String, location: String, email: String, gender: String, tourInfo: String){
         self.name = name
@@ -34,7 +57,7 @@ class Guide {
         self.location = location
         self.email = email
         self.gender = gender
-        self.tourInfo = tourInfo
+        self.tourBio = tourInfo
     }
     
     init() {
@@ -43,7 +66,7 @@ class Guide {
 
 class GuideTableViewController: UITableViewController {
 
-    let guides = [Guide]()
+    var guides = [Guide]()
     var ref: FIRDatabaseReference!
     var selectedProfile = Guide()
     
@@ -59,23 +82,25 @@ class GuideTableViewController: UITableViewController {
     ref = FIRDatabase.database().reference()
         let guideRef = ref.child("guide")
         
-
         guideRef.observe(.value, with: { (snapshot: FIRDataSnapshot) in
             
-            print(snapshot.children.allObjects)
+            for snap in snapshot.children {
+                print(snap)
+                let guide = Guide(snapshot: snap as! FIRDataSnapshot)
+                
+               // print(dictionary["email"]!)
+                self.guides.append(guide)
+            }
             
         })
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return guides.count
     }
 
@@ -97,7 +122,9 @@ class GuideTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if(segue.identifier) == "GuideProfile" {
-            let vc  = segue.destination as! GuideProfileTableViewController
+            let top  = segue.destination as! UINavigationController
+            let vc = top.topViewController as! GuideProfileTableViewController
+            
             vc.bioLabel?.text = selectedProfile.bio
             vc.locationLabel?.text = selectedProfile.location
             vc.nameLabel?.text = selectedProfile.name
@@ -109,7 +136,7 @@ class GuideTableViewController: UITableViewController {
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
-       
-        print("Work in progress")
+    
+        
     }
 }

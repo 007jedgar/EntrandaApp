@@ -1,0 +1,56 @@
+{
+  "City" : {
+    "City Name" : {
+      "city0" : {
+        "City ImgURL" : "https://firebasestorage.googleapis.com/v0/b/entranda-app.appspot.com/o/CityPictures%2FHoustonFromThePark.jpg?alt=media&token=1b6cfc25-f18d-41a4-ad08-379cd6a6df32",
+        "City Name" : "Houston"
+      },
+      "city1" : {
+        "City ImgURL" : "https://firebasestorage.googleapis.com/v0/b/entranda-app.appspot.com/o/CityPictures%2Fboston.jpg?alt=media&token=c90a6ee5-d87f-4fdd-a77b-812de9f314cc",
+        "City Name" : "Boston"
+      },
+      "city2" : {
+        "City ImgURL" : "https://firebasestorage.googleapis.com/v0/b/entranda-app.appspot.com/o/CityPictures%2Fsanfrancisco.jpg?alt=media&token=bb386bd3-475c-47b0-8c3c-82b93ddf2637",
+        "City Name" : "San Francisco"
+      }
+    }
+  },
+  "User" : {
+    "2F4E8A12-36A1-4A70-AA93-1B124B8B6A1D" : {
+      "Name" : "Joneaux",
+      "bio" : "If only I was a cool kid. Some days I wish I could be like them.",
+      "email" : "gmail@jonathan.com",
+      "gender" : "Male",
+      "location" : "Houston"
+    }
+  },
+  "guide" : {
+    "-Ki-qMntj071C1cMHSUn" : {
+      "age" : "12",
+      "bio" : "I Like to eat",
+      "email" : "007j.edgar@gmail.com",
+      "gender" : "Male",
+      "name" : "Jonathan",
+      "phone number" : "2259079616",
+      "tour bio" : "My Tour Looks Like this..."
+    },
+    "-Ki-qcgwky0hpC62sp46" : {
+      "age" : "22",
+      "bio" : "Be there or be square",
+      "email" : "jTwillio@gmail.com",
+      "gender" : "Male",
+      "name" : "Justin",
+      "phone number" : "2814931134",
+      "tour bio" : "My Tour Looks Like this..."
+    },
+    "-Ki-r7WM5kBwn3nJv5Q-" : {
+      "age" : "24",
+      "bio" : "Give me a camera and a hair clip",
+      "email" : "Z.SamanthaZ@gmail.com",
+      "gender" : "Female",
+      "name" : "Samantha",
+      "phone number" : "2819734421",
+      "tour bio" : "My Tour Looks Like this..."
+    }
+  }
+}

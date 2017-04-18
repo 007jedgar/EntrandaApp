@@ -13,6 +13,8 @@
 		AB1661061E98378000E5B1E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB1661041E98378000E5B1E5 /* Main.storyboard */; };
 		AB1661081E98378000E5B1E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB1661071E98378000E5B1E5 /* Assets.xcassets */; };
 		AB16610B1E98378000E5B1E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB1661091E98378000E5B1E5 /* LaunchScreen.storyboard */; };
+		AB2014A61EA675C700B00C01 /* EntrandaData.json in Resources */ = {isa = PBXBuildFile; fileRef = AB2014A51EA675C700B00C01 /* EntrandaData.json */; };
+		AB2014A81EA67DF400B00C01 /* PracticeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2014A71EA67DF400B00C01 /* PracticeTableViewController.swift */; };
 		AB6323181E98445A0077B993 /* LocalGuidesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6323171E98445A0077B993 /* LocalGuidesTableViewController.swift */; };
 		AB63231A1E9844A30077B993 /* MessageThreadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6323191E9844A30077B993 /* MessageThreadTableViewController.swift */; };
 		AB63231C1E9AC2500077B993 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63231B1E9AC2500077B993 /* DataModels.swift */; };
@@ -44,6 +46,8 @@
 		AB1661071E98378000E5B1E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB16610A1E98378000E5B1E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB16610C1E98378000E5B1E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB2014A51EA675C700B00C01 /* EntrandaData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EntrandaData.json; sourceTree = "<group>"; };
+		AB2014A71EA67DF400B00C01 /* PracticeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeTableViewController.swift; sourceTree = "<group>"; };
 		AB6323171E98445A0077B993 /* LocalGuidesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGuidesTableViewController.swift; sourceTree = "<group>"; };
 		AB6323191E9844A30077B993 /* MessageThreadTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageThreadTableViewController.swift; sourceTree = "<group>"; };
 		AB63231B1E9AC2500077B993 /* DataModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 				AB1661071E98378000E5B1E5 /* Assets.xcassets */,
 				ABFF11651E9FCA49004A8BC0 /* HoustonFromThePark.jpg */,
 				AB1661091E98378000E5B1E5 /* LaunchScreen.storyboard */,
+				AB2014A51EA675C700B00C01 /* EntrandaData.json */,
 				AB16610C1E98378000E5B1E5 /* Info.plist */,
 				ABE79D9D1E9D2E7800DAB662 /* GoogleService-Info.plist */,
 			);
@@ -160,6 +165,7 @@
 				ABFF114E1E9D5514004A8BC0 /* ProfileViewController.swift */,
 				ABFF11511E9D94FA004A8BC0 /* EditProfileViewController.swift */,
 				ABFF11531E9D9517004A8BC0 /* SelfProfileViewController.swift */,
+				AB2014A71EA67DF400B00C01 /* PracticeTableViewController.swift */,
 			);
 			name = "Profile View Controllers";
 			sourceTree = "<group>";
@@ -249,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABFF11561E9ECCB9004A8BC0 /* EntrandaSimple.storyboard in Resources */,
+				AB2014A61EA675C700B00C01 /* EntrandaData.json in Resources */,
 				AB16610B1E98378000E5B1E5 /* LaunchScreen.storyboard in Resources */,
 				ABE79D9E1E9D2E7800DAB662 /* GoogleService-Info.plist in Resources */,
 				AB1661081E98378000E5B1E5 /* Assets.xcassets in Resources */,
@@ -319,6 +326,7 @@
 				ABFF11621E9FC77F004A8BC0 /* GuideTableViewCell.swift in Sources */,
 				ABFF114D1E9D516C004A8BC0 /* LocalGuideTableViewCell.swift in Sources */,
 				ABFF114F1E9D5514004A8BC0 /* ProfileViewController.swift in Sources */,
+				AB2014A81EA67DF400B00C01 /* PracticeTableViewController.swift in Sources */,
 				AB63231A1E9844A30077B993 /* MessageThreadTableViewController.swift in Sources */,
 				AB63231C1E9AC2500077B993 /* DataModels.swift in Sources */,
 				ABFF115B1E9FC3C0004A8BC0 /* CityTableViewCell.swift in Sources */,
