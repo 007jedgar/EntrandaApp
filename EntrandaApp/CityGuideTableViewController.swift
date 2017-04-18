@@ -37,7 +37,6 @@ class CityGuideTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         sendToCityDB()
         readDB()
         self.tableView.reloadData()
@@ -65,10 +64,11 @@ class CityGuideTableViewController: UITableViewController {
         cityRef.observe(FIRDataEventType.value, with: { (snapshot: FIRDataSnapshot) in
             let cityInfo = snapshot.value as! [String: Any]
             
-            for i in 0...2 {
+            self.cities.removeAll()
+            for i in 0...5 {
             let eachCity = cityInfo["city\(i)"] as! [String: Any]
             let title = (eachCity["City Name"]!)
-                print((eachCity["City ImgURL"]!))
+//                print((eachCity["City ImgURL"]!))
             let cityPic = (eachCity["City ImgURL"]!)
                 let city = City(cityTitle: title as! String, cityId: "city\(i)", imgURL: cityPic as! String)
                 self.cities.append(city)
@@ -101,37 +101,27 @@ class CityGuideTableViewController: UITableViewController {
         return self.cities.count
     }
     
-    func downloadImgURL(url: String) -> UIImage {
-        let session = URLSession(configuration: .default)
-        let picURL = URL(string: url)
-        var _img = UIImage()
-        let downloadPicTask = session.dataTask(with: picURL!) { (data, response, error) in
-            if let e = error {
-                print("did not download...Error: \(e)")
-            } else {
-                
-            let imageData = data
-            let image = UIImage(data: imageData!)
-            _img = image!
-            }
-        }
-        downloadPicTask.resume()
-        return _img
-    }
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath) as! CityTableViewCell
 
         let city = cities[indexPath.row]
         let citytitle = city.cityTitle
         
-
         cell.cityLabel?.text = citytitle
-        
-        let imgURL = city.imgURL
-        let image = downloadImgURL(url: imgURL)
-        cell.cityImgView?.image = image
-        
+        DispatchQueue.global().async {
+            
+            let imgURL = city.imgURL
+            guard let imgData = NSData(contentsOf: URL(string: imgURL)!) else {
+                print("not readable file")
+                return
+            }
+            let photoImage = UIImage(data: imgData as Data)
+
+            DispatchQueue.main.async {
+                cell.cityImgView?.image = photoImage
+                
+            }
+}
         return cell
     }
 }
