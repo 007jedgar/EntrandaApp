@@ -48,6 +48,40 @@ class Guide {
         
     }
     
+    init(snapshot: [String: Any]) {
+        
+        guard let name = snapshot["name"] as? String else{
+            fatalError("name not found")
+        }
+        guard let email = snapshot["email"] as? String else{
+            fatalError("email not found")
+        }
+        guard let phoneNumber = snapshot["phone number"] as? String else{
+            fatalError("phone number not found")
+        }
+        guard let gender = snapshot["gender"] as? String else{
+            fatalError("gender not found")
+        }
+        guard let age = snapshot["age"] as? String else{
+            fatalError("age not found")
+        }
+        guard let bio = snapshot["bio"] as? String else{
+            fatalError("bio not found")
+        }
+        guard let tourBio = snapshot["tour bio"] as? String else{
+            fatalError("tour bio not found")
+        }
+        
+        self.name = name
+        self.email = email
+        self.phoneNumber = phoneNumber
+        self.gender = gender
+        self.age = age
+        self.bio = bio
+        self.tourBio = tourBio
+    }
+    
+    
     init() {
     }
 
@@ -62,12 +96,16 @@ class Guide {
     }
 }
 
+protocol SendDataDelegate {
+    func sendData(guideInfo:Guide)
+}
 
 class GuideTableViewController: UITableViewController {
 
     var guides = [Guide]()
     var ref: FIRDatabaseReference!
     var selectedProfile = Guide()
+    var delegate: SendDataDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,7 +126,7 @@ class GuideTableViewController: UITableViewController {
                 let dictionary = snap.value as! [String: Any]
                 print(dictionary)
                 
-                let guide = Guide(dictionary: dictionary)
+                let guide = Guide(snapshot: dictionary)
                 self.guides.append(guide)
                 self.tableView.reloadData()
             }
@@ -109,13 +147,17 @@ class GuideTableViewController: UITableViewController {
         
         let guide = guides[indexPath.row]
         cell.guideQuickBioLabel?.text = guide.name
+        cell.guideRatingLabel?.text = guide.bio
         cell.guideProfileImgView?.image = #imageLiteral(resourceName: "userIcon")
+        print("Found: \(guide.name)")
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedProfile = guides[indexPath.row]
+        self.delegate?.sendData(guideInfo: guides[indexPath.row])
         performSegue(withIdentifier: "GuideProfile", sender: self)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

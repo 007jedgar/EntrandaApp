@@ -174,8 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				ABFF11571E9ECD3A004A8BC0 /* CityGuideTableViewController.swift */,
-				ABFF11631E9FC925004A8BC0 /* GuideProfileTableViewController.swift */,
 				ABFF115E1E9FC69D004A8BC0 /* GuideTableViewController.swift */,
+				ABFF11631E9FC925004A8BC0 /* GuideProfileTableViewController.swift */,
 				ABB642AC1E9FF31A00E28A40 /* CreateGuideTableViewController.swift */,
 			);
 			name = "Simple Entranda Controllers";
