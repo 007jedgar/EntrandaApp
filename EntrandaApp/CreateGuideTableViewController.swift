@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
+
 class CreateGuideTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var ref: FIRDatabaseReference!
@@ -46,26 +47,12 @@ class CreateGuideTableViewController: UITableViewController, UIImagePickerContro
     //sends class to to firebase
     func sendGuideInfo(guideInfo: Guide) {
         
-        self.ref = FIRDatabase.database().reference()
+        self.ref = FIRDatabase.database().reference().child("guide")
+        let guide = self.ref.childByAutoId()
+
         
-        self.ref.child("guide").child("fillerinfo")
-        
-        let key = ref.child("guide")
-        let user = key.childByAutoId()
-        user.child("name").setValue(guideInfo.name)
-        let email = guideInfo.email
-        user.child("email").setValue(email)
-        let bio = guideInfo.bio
-        user.child("bio").setValue(bio)
-        let gender = guideInfo.gender
-        user.child("gender").setValue(gender)
-        let age = guideInfo.age
-        user.child("age").setValue(age)
-        let tourBio = guideInfo.tourBio
-        user.child("tour bio").setValue(tourBio)
-        let phoneNumber = guideInfo.phoneNumber
-        user.child("phone number").setValue(phoneNumber)
-        
+        guide.setValue(guideInfo.toDictionary())
+
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
         print("sent to DB")
@@ -159,9 +146,7 @@ class CreateGuideTableViewController: UITableViewController, UIImagePickerContro
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if UIImagePickerController.isSourceTypeAvailable(.camera){
-            //open camera
-            //code...
-            
+            //when pic is taken
         }else{
             
             print("camera isnt available")
@@ -178,6 +163,5 @@ class CreateGuideTableViewController: UITableViewController, UIImagePickerContro
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.imagePickerViewController.dismiss(animated: true, completion: nil)
     }
-    
 }
 

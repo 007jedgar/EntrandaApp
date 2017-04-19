@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class GuideProfileTableViewController: UITableViewController, SendDataDelegate {
+class GuideProfileTableViewController: UITableViewController {
 
         @IBOutlet weak var profileImgView: UIImageView!
         @IBOutlet weak var nameLabel: UILabel!
@@ -20,20 +20,23 @@ class GuideProfileTableViewController: UITableViewController, SendDataDelegate {
         @IBOutlet weak var emailLabel: UILabel!
         @IBOutlet weak var linksLabel: UILabel!
     
+    let guideTVC = GuideTableViewController()
+    
+    var guide :Guide!
+    
     var ref: FIRDatabaseReference!
-
+    var name = String()
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.bioLabel?.text = guide.bio
+        self.locationLabel?.text = guide.location
+        self.nameLabel?.text = guide.name
+        self.phoneNumberLabel?.text = guide.phoneNumber
+        self.emailLabel?.text = guide.email
+
         
     }
-    
-    func sendData(guideInfo: Guide) {
-        
-        self.nameLabel?.text = guideInfo.name
-        self.emailLabel?.text = guideInfo.email
-    }
-    
 
     // Populate the guide profile page
     @IBAction func backButtonPressed(_ sender: Any) {
