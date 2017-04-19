@@ -16,17 +16,13 @@ class GuideTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
-        self.guideProfileImgView.layer.cornerRadius = guideProfileImgView.layer.frame.size.width / 2
+        self.guideProfileImgView.layer.cornerRadius = guideProfileImgView.layer.frame.size.width / 5
         self.guideProfileImgView.clipsToBounds = true
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

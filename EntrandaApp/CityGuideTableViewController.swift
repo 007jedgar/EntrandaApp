@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseStorage
+import Kingfisher
 
 class City  {
     
@@ -36,6 +37,8 @@ class CityGuideTableViewController: UITableViewController {
     // MARK :: VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //self.tableView.register(CityTableViewCell.self, forCellReuseIdentifier: "CityCell")
 
         sendToCityDB()
         readDB()
@@ -111,17 +114,11 @@ class CityGuideTableViewController: UITableViewController {
         DispatchQueue.global().async {
             
             let imgURL = city.imgURL
-            guard let imgData = NSData(contentsOf: URL(string: imgURL)!) else {
-                print("not readable file")
-                return
-            }
-            let photoImage = UIImage(data: imgData as Data)
-
             DispatchQueue.main.async {
-                cell.cityImgView?.image = photoImage
-                
+                let url = URL(string: imgURL)
+                cell.cityImgView.kf.setImage(with: url)
             }
-}
+        }
         return cell
     }
 }

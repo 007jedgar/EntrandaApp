@@ -79,7 +79,7 @@
         <!--Guide Table View Controller-->
         <scene sceneID="9KK-W1-AVa">
             <objects>
-                <tableViewController id="ofl-gq-lDW" customClass="GuideTableViewController" customModule="EntrandaApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ofl-gq-lDW" customClass="GuideTableViewController" customModule="EntrandaApp" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="108" sectionHeaderHeight="28" sectionFooterHeight="28" id="EsU-o0-1uy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,12 +111,17 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <connections>
+                                        <outlet property="guideProfileImgView" destination="6kY-PN-BQ0" id="gsh-ir-BfO"/>
+                                        <outlet property="guideQuickBioLabel" destination="gNb-Jw-qDs" id="eAn-jX-DIp"/>
+                                        <outlet property="guideRatingLabel" destination="wKS-yk-QxG" id="4AR-kc-EOD"/>
+                                    </connections>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="guideProfileImgView" destination="6kY-PN-BQ0" id="OFY-Dw-hcY"/>
                                     <outlet property="guideQuickBioLabel" destination="gNb-Jw-qDs" id="Pmy-EL-txk"/>
                                     <outlet property="guideRatingLabel" destination="wKS-yk-QxG" id="XDO-KF-HPs"/>
-                                    <segue destination="7Cv-zS-jXO" kind="show" identifier="GuideCell" id="8vM-yI-Kh3"/>
+                                    <segue destination="7Cv-zS-jXO" kind="show" identifier="GuideProfile" id="8vM-yI-Kh3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -163,7 +168,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r10-JG-aEk">
                                                     <rect key="frame" x="158" y="23" width="100" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="0.96651738882064819" green="0.69726100896258003" blue="0.59723904346536516" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.47450980392156861" green="0.82352941176470584" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <state key="normal" title="Add Photo">
                                                         <color key="titleColor" red="0.96651738882064819" green="0.95889118640990612" blue="0.92029595366960848" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -389,7 +394,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6Y-cR-11h">
                                                     <rect key="frame" x="45" y="7" width="322" height="46"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" red="1" green="0.62131152710190352" blue="0.51232665015806833" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.46666666666666667" green="0.82352941176470584" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                     <state key="normal" title="Become a Guide">
                                                         <color key="titleColor" red="1" green="0.99207752419326967" blue="0.98792922775066083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
