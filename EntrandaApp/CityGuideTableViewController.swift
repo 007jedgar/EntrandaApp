@@ -12,22 +12,7 @@ import FirebaseDatabase
 import FirebaseStorage
 import Kingfisher
 
-class City  {
-    
-    var cityTitle = String()
-    var cityID = String()
-    var imgURL = String()
-    
-    init(cityTitle: String, cityId: String, imgURL: String) {
-        self.cityTitle = cityTitle
-        self.cityID = cityId
-        self.imgURL = imgURL
-    }
-    
-    init(){
-        
-    }
-}
+
 
 class CityGuideTableViewController: UITableViewController {
 
@@ -121,8 +106,18 @@ class CityGuideTableViewController: UITableViewController {
         }
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    //sends city object to GuideTableViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        if (segue.identifier) == "CityToGuide" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+            let cityObj = self.cities[indexPath.row]
+            let top  = segue.destination as! UINavigationController
+            let vc = top.topViewController as! GuideTableViewController
+                vc.city = cityObj
+                vc.title = cityObj.cityTitle
+            }
+        }
     }
 }

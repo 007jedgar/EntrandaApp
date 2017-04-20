@@ -19,6 +19,7 @@ class GuideProfileTableViewController: UITableViewController {
         @IBOutlet weak var phoneNumberLabel: UILabel!
         @IBOutlet weak var emailLabel: UILabel!
         @IBOutlet weak var linksLabel: UILabel!
+        @IBOutlet weak var tourBioLabel: UILabel!
     
     let guideTVC = GuideTableViewController()
     
@@ -31,9 +32,11 @@ class GuideProfileTableViewController: UITableViewController {
 
         self.bioLabel?.text = guide.bio
         self.locationLabel?.text = guide.location
+        print("did find: \(guide.location)")
         self.nameLabel?.text = guide.name
         self.phoneNumberLabel?.text = guide.phoneNumber
         self.emailLabel?.text = guide.email
+        self.tourBioLabel?.text = guide.tourBio
 
         
     }

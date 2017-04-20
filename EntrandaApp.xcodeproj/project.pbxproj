@@ -20,6 +20,7 @@
 		AB63231C1E9AC2500077B993 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63231B1E9AC2500077B993 /* DataModels.swift */; };
 		AB7686461E9AC49400C7EA3D /* MessageThreadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7686451E9AC49400C7EA3D /* MessageThreadCell.swift */; };
 		AB7686481E9AC68B00C7EA3D /* LetsGoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7686471E9AC68B00C7EA3D /* LetsGoViewController.swift */; };
+		AB8403A31EA81BCB000708F9 /* EntranData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8403A21EA81BCB000708F9 /* EntranData.swift */; };
 		ABB642AD1E9FF31A00E28A40 /* CreateGuideTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB642AC1E9FF31A00E28A40 /* CreateGuideTableViewController.swift */; };
 		ABE79D9E1E9D2E7800DAB662 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABE79D9D1E9D2E7800DAB662 /* GoogleService-Info.plist */; };
 		ABFF114B1E9D3CA2004A8BC0 /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFF114A1E9D3CA2004A8BC0 /* ChatRoomViewController.swift */; };
@@ -53,6 +54,7 @@
 		AB63231B1E9AC2500077B993 /* DataModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		AB7686451E9AC49400C7EA3D /* MessageThreadCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageThreadCell.swift; sourceTree = "<group>"; };
 		AB7686471E9AC68B00C7EA3D /* LetsGoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetsGoViewController.swift; sourceTree = "<group>"; };
+		AB8403A21EA81BCB000708F9 /* EntranData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntranData.swift; sourceTree = "<group>"; };
 		ABB642AC1E9FF31A00E28A40 /* CreateGuideTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGuideTableViewController.swift; sourceTree = "<group>"; };
 		ABE79D9D1E9D2E7800DAB662 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ABFF114A1E9D3CA2004A8BC0 /* ChatRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
@@ -174,9 +176,9 @@
 			isa = PBXGroup;
 			children = (
 				ABFF11571E9ECD3A004A8BC0 /* CityGuideTableViewController.swift */,
+				ABB642AC1E9FF31A00E28A40 /* CreateGuideTableViewController.swift */,
 				ABFF115E1E9FC69D004A8BC0 /* GuideTableViewController.swift */,
 				ABFF11631E9FC925004A8BC0 /* GuideProfileTableViewController.swift */,
-				ABB642AC1E9FF31A00E28A40 /* CreateGuideTableViewController.swift */,
 			);
 			name = "Simple Entranda Controllers";
 			sourceTree = "<group>";
@@ -186,6 +188,7 @@
 			children = (
 				ABFF115A1E9FC3C0004A8BC0 /* CityTableViewCell.swift */,
 				ABFF11611E9FC77F004A8BC0 /* GuideTableViewCell.swift */,
+				AB8403A21EA81BCB000708F9 /* EntranData.swift */,
 				ABFF11551E9ECCB9004A8BC0 /* EntrandaSimple.storyboard */,
 			);
 			name = "Simple Entranda Model";
@@ -328,6 +331,7 @@
 				ABFF114F1E9D5514004A8BC0 /* ProfileViewController.swift in Sources */,
 				AB2014A81EA67DF400B00C01 /* PracticeTableViewController.swift in Sources */,
 				AB63231A1E9844A30077B993 /* MessageThreadTableViewController.swift in Sources */,
+				AB8403A31EA81BCB000708F9 /* EntranData.swift in Sources */,
 				AB63231C1E9AC2500077B993 /* DataModels.swift in Sources */,
 				ABFF115B1E9FC3C0004A8BC0 /* CityTableViewCell.swift in Sources */,
 				ABFF114B1E9D3CA2004A8BC0 /* ChatRoomViewController.swift in Sources */,
