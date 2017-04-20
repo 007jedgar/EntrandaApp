@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import FirebaseStorage
 
 
 class CreateGuideTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -52,6 +53,7 @@ class CreateGuideTableViewController: UITableViewController, UIImagePickerContro
 
         
         guide.setValue(guideInfo.toDictionary())
+        //add Photo
 
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
@@ -151,11 +153,33 @@ class CreateGuideTableViewController: UITableViewController, UIImagePickerContro
             
             print("camera isnt available")
         }
+        let storage = FIRStorage.storage()
         
+
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let guide = Guide()
         guide.pictureURL = chosenImage
         self.profileImgView?.image = guide.pictureURL
+        
+        //Upload To Firebase Storage
+        var data = NSData()
+        data = UIImageJPEGRepresentation(guide.pictureURL, 0.8)! as NSData
+
+        let userProfilePricturesRef = storage.reference().child("UserProfilePictures")
+        let metaData = FIRStorageMetadata()
+        metaData.contentType = "image/jpg"
+        let filePath = ("")
+        userProfilePricturesRef.put((data as? Data)!, metadata: metaData) { (metadata, error) in
+            
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            } else {
+                let downloadURL = metaData.downloadURL()?.absoluteString
+
+            }
+        }
+
         dismiss(animated: true, completion: nil)
         
     }
