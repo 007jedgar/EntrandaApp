@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import Kingfisher
 
 class GuideTableViewController: UITableViewController {
 
@@ -21,8 +22,6 @@ class GuideTableViewController: UITableViewController {
         super.viewDidLoad()
         
         populateGuide()
-        self.title = "kit-kat"
-        self.navigationItem.title = "Cherio"
         
         self.tableView.reloadData()
     }
@@ -33,7 +32,7 @@ class GuideTableViewController: UITableViewController {
         let guideRef = ref.child("guide")
         
         guideRef.observe(.value, with: { (snapshot: FIRDataSnapshot) in
-            
+            self.guides.removeAll()
             for item in snapshot.children {
                 
                 let snap = item as! FIRDataSnapshot
@@ -62,7 +61,15 @@ class GuideTableViewController: UITableViewController {
         let guide = guides[indexPath.row]
         cell.guideQuickBioLabel?.text = guide.name
         cell.guideRatingLabel?.text = guide.bio
-        cell.guideProfileImgView?.image = #imageLiteral(resourceName: "userIcon")
+        
+        if guide.pictureURL == "" {
+            cell.guideProfileImgView.image = #imageLiteral(resourceName: "userIcon")
+        } else {
+            let photoURL = guide.pictureURL
+            let url = URL(string: photoURL)
+            cell.guideProfileImgView.kf.setImage(with: url)
+        }
+        
         self.navigationItem.title = guide.location
 
         return cell
@@ -77,15 +84,16 @@ class GuideTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if(segue.identifier) == "GuideProfile" {
-            let top  = segue.destination as! UINavigationController
-            let vc = top.topViewController as! GuideProfileTableViewController
+//            let top  = segue.destination as! UINavigationController
+//            let vc = top.topViewController as! GuideProfileTableViewController
+            let vc = segue.destination as! GuideProfileTableViewControll
             
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let guide = guides[indexPath.row]
                 
                 vc.guide = guide
                 
-                print("Found: \(guide.bio)")
+                print("Found: \(guide.pictureURL)")
             }
         }
     }
