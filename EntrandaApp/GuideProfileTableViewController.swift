@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class GuideProfileTableViewController: UITableViewController {
+class GuideProfileTableViewControll: UITableViewController {
 
         @IBOutlet weak var profileImgView: UIImageView!
         @IBOutlet weak var nameLabel: UILabel!
@@ -48,6 +48,7 @@ class GuideProfileTableViewController: UITableViewController {
 
     // Populate the guide profile page
     @IBAction func backButtonPressed(_ sender: Any) {
+        
         
     }
     

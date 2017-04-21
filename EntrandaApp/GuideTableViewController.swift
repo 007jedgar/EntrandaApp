@@ -84,8 +84,9 @@ class GuideTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if(segue.identifier) == "GuideProfile" {
-            let top  = segue.destination as! UINavigationController
-            let vc = top.topViewController as! GuideProfileTableViewController
+//            let top  = segue.destination as! UINavigationController
+//            let vc = top.topViewController as! GuideProfileTableViewController
+            let vc = segue.destination as! GuideProfileTableViewControll
             
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let guide = guides[indexPath.row]
