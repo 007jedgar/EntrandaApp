@@ -55,9 +55,12 @@ class GuideProfileTableViewControll: UITableViewController {
     @IBAction func callButtonPressed(_ sender: Any) {
         let MessageGuide = UIAlertController(title: "Message Guide", message: "Open Phone App", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Call", style: .default) { (UIAlertAction) in
-            
-            if let url = URL(string: "telprompt://\(self.guide.phoneNumber)") {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            if let phoneCallURL = URL(string: "tel://\(self.guide.phoneNumber)") {
+                
+                let application:UIApplication = UIApplication.shared
+                if (application.canOpenURL(phoneCallURL)) {
+                    application.open(phoneCallURL, options: [:], completionHandler: nil)
+                }
             }
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

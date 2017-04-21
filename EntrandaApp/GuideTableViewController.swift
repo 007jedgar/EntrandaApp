@@ -22,7 +22,7 @@ class GuideTableViewController: UITableViewController {
         super.viewDidLoad()
         
         populateGuide()
-        
+        self.navigationItem.title = "Houston"
         self.tableView.reloadData()
     }
 

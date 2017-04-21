@@ -22,6 +22,7 @@ class Guide {
     var tags = [String]()
     var phoneNumber = String()
     var links = String()
+    var password = String()
     
     var pricing = String()
     var tourBio = String()
@@ -115,6 +116,12 @@ class Guide {
         self.gender = gender
         self.tourBio = tourInfo
     }
+    
+    init(name: String, email: String, password: String) {
+        self.name = name
+        self.email = email
+        self.password = password
+    }
 }
 
 
@@ -133,4 +140,5 @@ class City  {
     init(){
         
     }
+    
 }
