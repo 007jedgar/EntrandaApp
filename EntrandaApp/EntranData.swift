@@ -13,7 +13,8 @@ import UIKit
 class Guide {
     
     var name = String()
-    var pictureURL = UIImage()
+    var picture = UIImage()
+    var pictureURL = String()
     var bio = String()
     var age = String()
     
@@ -34,7 +35,8 @@ class Guide {
             let age = dictionary["age"] as? String,
             let name = dictionary["name"] as? String,
             let phoneNumber = dictionary["phone number"] as? String,
-            let tourBio = dictionary["tour bio"] as? String
+            let tourBio = dictionary["tour bio"] as? String,
+            let pictureURL = dictionary["pictureURL"] as? String
             else {
                 fatalError("email is not found")
         }
@@ -57,7 +59,8 @@ class Guide {
               "bio":self.bio,
               "tour bio":self.tourBio,
               "gender":self.gender,
-              "location":self.location
+              "location":self.location,
+              "pictureURL":self.pictureURL
         ]
     }
     
@@ -84,7 +87,9 @@ class Guide {
         guard let tourBio = snapshot["tour bio"] as? String else{
             fatalError("tour bio not found")
         }
-        
+        guard let pictureURL = snapshot["pictureURL"] as? String else {
+            fatalError("photoURL could not be found")
+        }
         
         self.name = name
         self.email = email
@@ -93,6 +98,7 @@ class Guide {
         self.age = age
         self.bio = bio
         self.tourBio = tourBio
+        self.pictureURL = pictureURL
     }
     
     

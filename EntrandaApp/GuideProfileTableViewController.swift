@@ -16,7 +16,7 @@ class GuideProfileTableViewController: UITableViewController {
         @IBOutlet weak var nameLabel: UILabel!
         @IBOutlet weak var locationLabel: UILabel!
         @IBOutlet weak var bioLabel: UILabel!
-        @IBOutlet weak var phoneNumberLabel: UILabel!
+        @IBOutlet weak var phoneNumberButton: UIButton!
         @IBOutlet weak var emailLabel: UILabel!
         @IBOutlet weak var linksLabel: UILabel!
         @IBOutlet weak var tourBioLabel: UILabel!
@@ -34,7 +34,7 @@ class GuideProfileTableViewController: UITableViewController {
         self.locationLabel?.text = guide.location
         print("did find: \(guide.location)")
         self.nameLabel?.text = guide.name
-        self.phoneNumberLabel?.text = guide.phoneNumber
+        self.phoneNumberButton?.setTitle(guide.phoneNumber, for: .normal)
         self.emailLabel?.text = guide.email
         self.tourBioLabel?.text = guide.tourBio
 
@@ -43,6 +43,18 @@ class GuideProfileTableViewController: UITableViewController {
 
     // Populate the guide profile page
     @IBAction func backButtonPressed(_ sender: Any) {
+        
+    }
+    
+    @IBAction func callButtonPressed(_ sender: Any) {
+        let MessageGuide = UIAlertController(title: "Message Guide", message: "Open Phone App", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Call", style: .default) { (UIAlertAction) in
+            
+            guard let number = URL(string: "telprompt://" + self.guide.phoneNumber) else { return }
+            UIApplication.shared.open(number, options: [:], completionHandler: nil)
+        }
+        MessageGuide.addAction(okAction)
+        
         
     }
     

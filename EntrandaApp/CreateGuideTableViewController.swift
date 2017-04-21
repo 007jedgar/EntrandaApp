@@ -16,7 +16,8 @@ class CreateGuideTableViewController: UITableViewController, UIImagePickerContro
     
     var ref: FIRDatabaseReference!
     var imagePickerViewController : UIImagePickerController!
-
+    var pictureDownloadURL = String()
+    
     
         @IBOutlet weak var nameTextField: UITextField!
         @IBOutlet weak var locationTextField: UITextField!
@@ -50,10 +51,8 @@ class CreateGuideTableViewController: UITableViewController, UIImagePickerContro
         
         self.ref = FIRDatabase.database().reference().child("guide")
         let guide = self.ref.childByAutoId()
-
         
         guide.setValue(guideInfo.toDictionary())
-        //add Photo
 
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
@@ -111,9 +110,17 @@ class CreateGuideTableViewController: UITableViewController, UIImagePickerContro
             present(notFinishedAlert, animated: true, completion: nil)
             return
         }
+        guard let theCatch = PricingTextField.text, !theCatch.isEmpty else {
+            message = "check out the 'Whats the catch' field...why are you giving up your precious time?"
+            present(notFinishedAlert, animated: true, completion: nil)
+            return
+        }
+
         
         let guide = Guide(name: name, bio: bio, age: age, location: location, email: email, gender: gender, tourInfo: tourInfo)
         guide.phoneNumber = phoneNumber
+        guide.pictureURL = pictureDownloadURL
+        guide.pricing = theCatch
         
         sendGuideInfo(guideInfo: guide)
     }
@@ -158,30 +165,35 @@ class CreateGuideTableViewController: UITableViewController, UIImagePickerContro
 
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         let guide = Guide()
-        guide.pictureURL = chosenImage
-        self.profileImgView?.image = guide.pictureURL
+        guide.picture = chosenImage
+        self.profileImgView?.image = guide.picture
         
         //Upload To Firebase Storage
         var data = NSData()
-        data = UIImageJPEGRepresentation(guide.pictureURL, 0.8)! as NSData
+        data = UIImageJPEGRepresentation(guide.picture, 0.8)! as NSData
 
         let userProfilePricturesRef = storage.reference().child("UserProfilePictures")
         let metaData = FIRStorageMetadata()
         metaData.contentType = "image/jpg"
-        let filePath = ("")
-        userProfilePricturesRef.put((data as? Data)!, metadata: metaData) { (metadata, error) in
-            
+        let uuid = NSUUID().uuidString
+
+        let filePath = ("\(uuid)")
+        userProfilePricturesRef.child("\(filePath)").put((data as? Data)!, metadata: metaData) { (metadata, error) in
             if let error = error {
                 print(error.localizedDescription)
                 return
             } else {
                 let downloadURL = metaData.downloadURL()?.absoluteString
-
+                let re = metadata?.downloadURL()?.absoluteString
+                print(re!)
+                guard let dlURL = downloadURL else {
+                    print("Couldn't get downloadURL")
+                    return
+                }
+                self.pictureDownloadURL = ("\(filePath)")
             }
         }
-
         dismiss(animated: true, completion: nil)
-        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
