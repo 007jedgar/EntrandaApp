@@ -47,6 +47,7 @@ class Guide {
         self.name = name
         self.tourBio = tourBio
         self.phoneNumber = phoneNumber
+        self.pictureURL = pictureURL
         
     }
     

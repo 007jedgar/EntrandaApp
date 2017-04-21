@@ -190,6 +190,7 @@ class CreateGuideTableViewController: UITableViewController, UIImagePickerContro
                     print("Couldn't get downloadURL")
                     return
                 }
+                print("\(dlURL)")
                 self.pictureDownloadURL = ("\(filePath)")
             }
         }

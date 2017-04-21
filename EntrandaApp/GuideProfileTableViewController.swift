@@ -32,12 +32,17 @@ class GuideProfileTableViewController: UITableViewController {
 
         self.bioLabel?.text = guide.bio
         self.locationLabel?.text = guide.location
-        print("did find: \(guide.location)")
         self.nameLabel?.text = guide.name
         self.phoneNumberButton?.setTitle(guide.phoneNumber, for: .normal)
         self.emailLabel?.text = guide.email
         self.tourBioLabel?.text = guide.tourBio
+        let photoURL = guide.pictureURL
+        print("\(guide.pictureURL)")
+        let url = URL(string: photoURL)
+        self.profileImgView.kf.setImage(with: url)
 
+        self.profileImgView.layer.cornerRadius = profileImgView.layer.frame.size.width / 5
+        self.profileImgView.clipsToBounds = true
         
     }
 
@@ -50,11 +55,13 @@ class GuideProfileTableViewController: UITableViewController {
         let MessageGuide = UIAlertController(title: "Message Guide", message: "Open Phone App", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Call", style: .default) { (UIAlertAction) in
             
-            guard let number = URL(string: "telprompt://" + self.guide.phoneNumber) else { return }
-            UIApplication.shared.open(number, options: [:], completionHandler: nil)
+            if let url = URL(string: "telprompt://\(self.guide.phoneNumber)") {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
         }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         MessageGuide.addAction(okAction)
-        
+        MessageGuide.addAction(cancel)
         
     }
     

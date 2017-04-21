@@ -22,8 +22,6 @@ class GuideTableViewController: UITableViewController {
         super.viewDidLoad()
         
         populateGuide()
-        self.title = "kit-kat"
-        self.navigationItem.title = "Cherio"
         
         self.tableView.reloadData()
     }
@@ -94,7 +92,7 @@ class GuideTableViewController: UITableViewController {
                 
                 vc.guide = guide
                 
-                print("Found: \(guide.bio)")
+                print("Found: \(guide.pictureURL)")
             }
         }
     }
