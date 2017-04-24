@@ -11,7 +11,7 @@ import Firebase
 import FirebaseDatabase
 import Kingfisher
 
-class GuideTableViewController: UITableViewController {
+class GuideTableViewControl: UITableViewController {
 
     var guides = [Guide]()
     var ref: FIRDatabaseReference!
@@ -22,7 +22,6 @@ class GuideTableViewController: UITableViewController {
         super.viewDidLoad()
         
         populateGuide()
-        self.navigationItem.title = "Houston"
         self.tableView.reloadData()
     }
 
@@ -84,8 +83,7 @@ class GuideTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if(segue.identifier) == "GuideProfile" {
-//            let top  = segue.destination as! UINavigationController
-//            let vc = top.topViewController as! GuideProfileTableViewController
+
             let vc = segue.destination as! GuideProfileTableViewControll
             
             if let indexPath = self.tableView.indexPathForSelectedRow {

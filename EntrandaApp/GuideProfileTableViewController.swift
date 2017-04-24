@@ -14,14 +14,14 @@ class GuideProfileTableViewControll: UITableViewController {
 
         @IBOutlet weak var profileImgView: UIImageView!
         @IBOutlet weak var nameLabel: UILabel!
-        @IBOutlet weak var locationLabel: UILabel!
         @IBOutlet weak var bioLabel: UILabel!
         @IBOutlet weak var phoneNumberButton: UIButton!
         @IBOutlet weak var emailLabel: UILabel!
         @IBOutlet weak var linksLabel: UILabel!
         @IBOutlet weak var tourBioLabel: UILabel!
+        @IBOutlet weak var locationLabel: UILabel!
     
-    let guideTVC = GuideTableViewController()
+    let guideTVC = GuideTableViewControl()
     
     var guide :Guide!
     
@@ -39,7 +39,13 @@ class GuideProfileTableViewControll: UITableViewController {
         let photoURL = guide.pictureURL
         print("\(guide.pictureURL)")
         let url = URL(string: photoURL)
-        self.profileImgView.kf.setImage(with: url)
+        
+        // In case image doesnt upload to firebase correctly
+        if photoURL == "" {
+            self.profileImgView.image = #imageLiteral(resourceName: "userIcon")
+        } else {
+            self.profileImgView.kf.setImage(with: url)
+        }
 
         self.profileImgView.layer.cornerRadius = profileImgView.layer.frame.size.width / 5
         self.profileImgView.clipsToBounds = true
@@ -48,7 +54,6 @@ class GuideProfileTableViewControll: UITableViewController {
 
     // Populate the guide profile page
     @IBAction func backButtonPressed(_ sender: Any) {
-        
         
     }
     

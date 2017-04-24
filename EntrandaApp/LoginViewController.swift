@@ -18,19 +18,65 @@ class LoginViewController: UITableViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmationTextField: UITextField!
     
+    @IBOutlet weak var nameTableViewCell: UITableViewCell!
+    @IBOutlet weak var confirmationTableViewCell: UITableViewCell!
+    @IBOutlet weak var emailTableViewCell: UITableViewCell!
+    @IBOutlet weak var passwordTableViewCell: UITableViewCell!
+    @IBOutlet weak var doneTableViewCell: UITableViewCell!
+    var isRegistered: Bool = false
+    
+    var counter = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.confirmationTableViewCell.frame.size.height = 0
+        self.nameTableViewCell.frame.size.height = 0
+        self.emailTableViewCell.frame.size.height = 0
+        self.passwordTableViewCell.frame.size.height = 0
+        self.doneTableViewCell.frame.size.height = 0
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //should hide the cells
+        self.confirmationTableViewCell.frame.size.height = 0
+        self.nameTableViewCell.frame.size.height = 0
+        self.emailTableViewCell.frame.size.height = 0
+        self.passwordTableViewCell.frame.size.height = 0
+        self.doneTableViewCell.frame.size.height = 0
     }
 
     @IBAction func signupButtonPressed(_ sender: Any) {
+        //unhide cells that contain text fields
+        counter += 1
+        isRegistered = false
+        nameTableViewCell.frame.size.height = 60
+        confirmationTableViewCell.frame.size.height = 60
+        emailTableViewCell.frame.size.height = 60
+        passwordTableViewCell.frame.size.height = 60
+        doneTableViewCell.frame.size.height = 69
         
-        
+        //easter egg
+        if counter >= 4 {
+            
+        }
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-     
+        //unhide cells that contain text fields
+        counter += 1
+        isRegistered = true
+        emailTableViewCell.frame.size.height = 60
+        passwordTableViewCell.frame.size.height = 60
+        doneTableViewCell.frame.size.height = 69
+        nameTableViewCell.frame.size.height = 0
+        confirmationTableViewCell.frame.size.height = 0
         
+        //easter egg
+        if counter >= 4 {
+        
+        }
     }
     
     //login or signup auth field completed
@@ -49,12 +95,12 @@ class LoginViewController: UITableViewController {
         let passwordsDontMatchAlert = UIAlertController(title: "Passwords Don't Match", message: "Check out your passwords...let's get this right now", preferredStyle: .alert)
         passwordsDontMatchAlert.addAction(okAction)
         
+        //checks for empty text fields
         guard let name = self.nameTextField.text, !name.isEmpty else {
             present(nameAlert, animated: true, completion: nil)
             return
         }
-        
-        guard let email = self.nameTextField.text, !email.isEmpty else {
+        guard let email = self.emailTextField.text, !email.isEmpty else {
             present(emailAlert, animated: true, completion: nil)
             return
         }
@@ -66,13 +112,45 @@ class LoginViewController: UITableViewController {
             present(passwordsDontMatchAlert,animated: true, completion: nil)
             return
         }
+        
+        //checks if signup or login was selected
+        if self.isRegistered == false {
         let guide = Guide(name: name, email: email, password: confirmation)
         print("\(guide.name, guide.email)")
         authorizeUser(authInfo: guide)
+        
+            //Firebase Authentication
+        FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
+
+            if error != nil {
+                print("Auth failed")
+                return
+            }else{}
+            FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
+                //auth listener waits for user to be authenticated to perform segue
+                FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
+                    if user != nil {
+                        //perform segue
+                        }
+                    }
+                }
+            }
+        } else {
+            FIRAuth.auth()!.signIn(withEmail: email,
+                                   password: password)
+                            //auth listener waits for user to be authenticated to perform segue
+            FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
+                if user != nil {
+                    //perform segue
+                }
+            }
+        }
     }
     
+    //Random useless function...
     func authorizeUser(authInfo: Guide) {
         let dictionary = ["name": authInfo.name, "email": authInfo.email]
         print("Got some data for: \(dictionary)")
+
     }
 }

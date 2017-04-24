@@ -22,8 +22,6 @@ class CityGuideTableViewController: UITableViewController {
     // MARK :: VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //self.tableView.register(CityTableViewCell.self, forCellReuseIdentifier: "CityCell")
 
         sendToCityDB()
         readDB()
@@ -56,7 +54,6 @@ class CityGuideTableViewController: UITableViewController {
             for i in 0...5 {
             let eachCity = cityInfo["city\(i)"] as! [String: Any]
             let title = (eachCity["City Name"]!)
-//                print((eachCity["City ImgURL"]!))
             let cityPic = (eachCity["City ImgURL"]!)
                 let city = City(cityTitle: title as! String, cityId: "city\(i)", imgURL: cityPic as! String)
                 self.cities.append(city)
@@ -113,8 +110,8 @@ class CityGuideTableViewController: UITableViewController {
         if (segue.identifier) == "CityToGuide" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
             let cityObj = self.cities[indexPath.row]
-            let top  = segue.destination as! UINavigationController
-            let vc = top.topViewController as! GuideTableViewController
+            let vc  = segue.destination as! GuideTableViewControl
+            //let vc = top.topViewController as! GuideTableViewControl
                 vc.city = cityObj
                 vc.title = cityObj.cityTitle
             }
