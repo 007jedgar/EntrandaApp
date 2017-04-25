@@ -73,7 +73,4 @@ class GuideProfileTableViewControll: UITableViewController {
         MessageGuide.addAction(cancel)
         
     }
-    
-    
-    
 }

@@ -40,8 +40,10 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.9)
+  - JSQMessagesViewController (7.3.4):
+    - JSQSystemSoundPlayer (~> 2.0.1)
+  - JSQSystemSoundPlayer (2.0.1)
   - Kingfisher (3.5.2)
-  - NoChat (0.3.2)
   - SkyFloatingLabelTextField (2.0.1)
 
 DEPENDENCIES:
@@ -50,8 +52,8 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - JSQMessagesViewController
   - Kingfisher (~> 3.0)
-  - NoChat (~> 0.3)
   - SkyFloatingLabelTextField (~> 2.0.0)
 
 SPEC CHECKSUMS:
@@ -64,10 +66,11 @@ SPEC CHECKSUMS:
   FirebaseStorage: a5c55b23741a49a72af8f30f95b3bb5ddbeda12d
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
+  JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
+  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   Kingfisher: 9950e382c500b6834ce004c7c4131c444e90c3a1
-  NoChat: aaa980b8b29c0db8c8bd8ecde22e718cc8ad1bf7
   SkyFloatingLabelTextField: 070e749632ffd608d6fd9db3fa488a822524997c
 
-PODFILE CHECKSUM: ede1f50278ee1c7b7e7f1dc3cb3d6f85d1984931
+PODFILE CHECKSUM: ef1a118876bb24e67d77d223f22c7adc640c1ad4
 
 COCOAPODS: 1.2.0

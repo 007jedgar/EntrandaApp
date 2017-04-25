@@ -74,6 +74,16 @@
 			<key>orderHint</key>
 			<integer>16</integer>
 		</dict>
+		<key>JSQMessagesViewController.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>20</integer>
+		</dict>
+		<key>JSQSystemSoundPlayer.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>21</integer>
+		</dict>
 		<key>Kingfisher.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -202,6 +212,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>BD9D856BD8FA7BBD9BF6286EB6CA4A33</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C052BEBFBD0AB5218CC64BA3450F6547</key>
 		<dict>
 			<key>primary</key>
@@ -217,7 +232,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C7DCF2B547F7871B9BFD74DE93B0E173</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CDF32DDE91D8B5CF31D4EBD5304D76C7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>CE7E49D67F62835CB3EE7C2ED0B7558F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D0581AF7BF4A6DA140D280B19ECC7BFF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

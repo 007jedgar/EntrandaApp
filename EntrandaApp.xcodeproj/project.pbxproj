@@ -22,9 +22,9 @@
 		AB7686481E9AC68B00C7EA3D /* LetsGoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7686471E9AC68B00C7EA3D /* LetsGoViewController.swift */; };
 		AB7F88131EAAB1EB002C8383 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7F88121EAAB1EB002C8383 /* LoginViewController.swift */; };
 		AB8403A31EA81BCB000708F9 /* EntranData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8403A21EA81BCB000708F9 /* EntranData.swift */; };
+		ABA1AB791EAEE245001425D7 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA1AB781EAEE245001425D7 /* MessageManager.swift */; };
 		ABB642AD1E9FF31A00E28A40 /* CreateGuideTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB642AC1E9FF31A00E28A40 /* CreateGuideTableViewController.swift */; };
 		ABE79D9E1E9D2E7800DAB662 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABE79D9D1E9D2E7800DAB662 /* GoogleService-Info.plist */; };
-		ABFF114B1E9D3CA2004A8BC0 /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFF114A1E9D3CA2004A8BC0 /* ChatRoomViewController.swift */; };
 		ABFF114D1E9D516C004A8BC0 /* LocalGuideTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFF114C1E9D516C004A8BC0 /* LocalGuideTableViewCell.swift */; };
 		ABFF114F1E9D5514004A8BC0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFF114E1E9D5514004A8BC0 /* ProfileViewController.swift */; };
 		ABFF11521E9D94FA004A8BC0 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFF11511E9D94FA004A8BC0 /* EditProfileViewController.swift */; };
@@ -57,9 +57,9 @@
 		AB7686471E9AC68B00C7EA3D /* LetsGoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetsGoViewController.swift; sourceTree = "<group>"; };
 		AB7F88121EAAB1EB002C8383 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AB8403A21EA81BCB000708F9 /* EntranData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntranData.swift; sourceTree = "<group>"; };
+		ABA1AB781EAEE245001425D7 /* MessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
 		ABB642AC1E9FF31A00E28A40 /* CreateGuideTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGuideTableViewController.swift; sourceTree = "<group>"; };
 		ABE79D9D1E9D2E7800DAB662 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		ABFF114A1E9D3CA2004A8BC0 /* ChatRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
 		ABFF114C1E9D516C004A8BC0 /* LocalGuideTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGuideTableViewCell.swift; sourceTree = "<group>"; };
 		ABFF114E1E9D5514004A8BC0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		ABFF11511E9D94FA004A8BC0 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -146,9 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				AB6323171E98445A0077B993 /* LocalGuidesTableViewController.swift */,
-				AB6323191E9844A30077B993 /* MessageThreadTableViewController.swift */,
 				AB7686471E9AC68B00C7EA3D /* LetsGoViewController.swift */,
-				ABFF114A1E9D3CA2004A8BC0 /* ChatRoomViewController.swift */,
 			);
 			name = "Views From The 6";
 			sourceTree = "<group>";
@@ -168,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				AB7F88121EAAB1EB002C8383 /* LoginViewController.swift */,
+				AB6323191E9844A30077B993 /* MessageThreadTableViewController.swift */,
 			);
 			name = "Personal View Controllers";
 			sourceTree = "<group>";
@@ -201,6 +200,7 @@
 				ABFF11611E9FC77F004A8BC0 /* GuideTableViewCell.swift */,
 				AB8403A21EA81BCB000708F9 /* EntranData.swift */,
 				ABFF11551E9ECCB9004A8BC0 /* EntrandaSimple.storyboard */,
+				ABA1AB781EAEE245001425D7 /* MessageManager.swift */,
 			);
 			name = "Simple Entranda Model";
 			sourceTree = "<group>";
@@ -346,9 +346,9 @@
 				AB8403A31EA81BCB000708F9 /* EntranData.swift in Sources */,
 				AB63231C1E9AC2500077B993 /* DataModels.swift in Sources */,
 				ABFF115B1E9FC3C0004A8BC0 /* CityTableViewCell.swift in Sources */,
-				ABFF114B1E9D3CA2004A8BC0 /* ChatRoomViewController.swift in Sources */,
 				ABFF11641E9FC925004A8BC0 /* GuideProfileTableViewController.swift in Sources */,
 				ABFF115F1E9FC69D004A8BC0 /* GuideTableViewController.swift in Sources */,
+				ABA1AB791EAEE245001425D7 /* MessageManager.swift in Sources */,
 				AB1661011E98378000E5B1E5 /* AppDelegate.swift in Sources */,
 				AB7686461E9AC49400C7EA3D /* MessageThreadCell.swift in Sources */,
 				AB7686481E9AC68B00C7EA3D /* LetsGoViewController.swift in Sources */,

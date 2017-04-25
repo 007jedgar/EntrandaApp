@@ -16,5 +16,7 @@ target 'EntrandaApp' do
     pod 'Firebase/Auth'
     pod 'Kingfisher', '~> 3.0'
     pod 'SkyFloatingLabelTextField', '~> 2.0.0'
-    pod 'NoChat', '~> 0.3'
+    pod 'JSQMessagesViewController'
+    
+
 end

@@ -43,6 +43,21 @@ class CreateGuideTableViewController: UITableViewController, UIImagePickerContro
         self.profileImgView.layer.cornerRadius = self.profileImgView.layer.frame.size.width / 7
         self.profileImgView.clipsToBounds = true
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        performSegue(withIdentifier: "AuthUser", sender: nil)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier) == "AuthUser" {
+            
+        }
+        
+    }
 
     // MARK: - Table view data source
 

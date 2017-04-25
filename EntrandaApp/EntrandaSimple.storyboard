@@ -635,7 +635,7 @@
                         <outlet property="quickBioTextField" destination="O11-i3-y8J" id="Lgd-fz-yHb"/>
                         <outlet property="tagsTextField" destination="5io-Pa-mPc" id="xwO-RE-Aie"/>
                         <outlet property="tourInfoTextField" destination="1kE-5d-WW9" id="zmj-xk-Mnh"/>
-                        <segue destination="o5M-xl-X4f" kind="presentation" id="K61-RM-jvR"/>
+                        <segue destination="o5M-xl-X4f" kind="presentation" identifier="AuthUser" id="K61-RM-jvR"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Fl-ct-Uqq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -865,7 +865,7 @@
         <!--Item-->
         <scene sceneID="abO-HR-mQk">
             <objects>
-                <tableViewController id="hhL-St-OkC" sceneMemberID="viewController">
+                <tableViewController id="hhL-St-OkC" customClass="MessageThreadTableViewController" customModule="EntrandaApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="m3b-MP-98M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -911,6 +911,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="K61-RM-jvR"/>
+        <segue reference="HTd-PA-xbB"/>
     </inferredMetricsTieBreakers>
 </document>
