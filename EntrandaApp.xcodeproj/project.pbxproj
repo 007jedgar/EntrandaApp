@@ -15,6 +15,7 @@
 		AB16610B1E98378000E5B1E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB1661091E98378000E5B1E5 /* LaunchScreen.storyboard */; };
 		AB2014A61EA675C700B00C01 /* EntrandaData.json in Resources */ = {isa = PBXBuildFile; fileRef = AB2014A51EA675C700B00C01 /* EntrandaData.json */; };
 		AB2014A81EA67DF400B00C01 /* PracticeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2014A71EA67DF400B00C01 /* PracticeTableViewController.swift */; };
+		AB2322E51EAEF6A20027483F /* CreateChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2322E41EAEF6A20027483F /* CreateChannelCell.swift */; };
 		AB6323181E98445A0077B993 /* LocalGuidesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6323171E98445A0077B993 /* LocalGuidesTableViewController.swift */; };
 		AB63231A1E9844A30077B993 /* MessageThreadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6323191E9844A30077B993 /* MessageThreadTableViewController.swift */; };
 		AB63231C1E9AC2500077B993 /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB63231B1E9AC2500077B993 /* DataModels.swift */; };
@@ -50,6 +51,7 @@
 		AB16610C1E98378000E5B1E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB2014A51EA675C700B00C01 /* EntrandaData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EntrandaData.json; sourceTree = "<group>"; };
 		AB2014A71EA67DF400B00C01 /* PracticeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeTableViewController.swift; sourceTree = "<group>"; };
+		AB2322E41EAEF6A20027483F /* CreateChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateChannelCell.swift; sourceTree = "<group>"; };
 		AB6323171E98445A0077B993 /* LocalGuidesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGuidesTableViewController.swift; sourceTree = "<group>"; };
 		AB6323191E9844A30077B993 /* MessageThreadTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageThreadTableViewController.swift; sourceTree = "<group>"; };
 		AB63231B1E9AC2500077B993 /* DataModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
@@ -199,8 +201,9 @@
 				ABFF115A1E9FC3C0004A8BC0 /* CityTableViewCell.swift */,
 				ABFF11611E9FC77F004A8BC0 /* GuideTableViewCell.swift */,
 				AB8403A21EA81BCB000708F9 /* EntranData.swift */,
-				ABFF11551E9ECCB9004A8BC0 /* EntrandaSimple.storyboard */,
 				ABA1AB781EAEE245001425D7 /* MessageManager.swift */,
+				AB2322E41EAEF6A20027483F /* CreateChannelCell.swift */,
+				ABFF11551E9ECCB9004A8BC0 /* EntrandaSimple.storyboard */,
 			);
 			name = "Simple Entranda Model";
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				AB1661011E98378000E5B1E5 /* AppDelegate.swift in Sources */,
 				AB7686461E9AC49400C7EA3D /* MessageThreadCell.swift in Sources */,
 				AB7686481E9AC68B00C7EA3D /* LetsGoViewController.swift in Sources */,
+				AB2322E51EAEF6A20027483F /* CreateChannelCell.swift in Sources */,
 				ABB642AD1E9FF31A00E28A40 /* CreateGuideTableViewController.swift in Sources */,
 				AB6323181E98445A0077B993 /* LocalGuidesTableViewController.swift in Sources */,
 			);

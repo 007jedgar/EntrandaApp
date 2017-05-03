@@ -11,12 +11,18 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 
+enum SignInOptions {
+    case login
+    case signup
+}
+
 class LoginViewController: UITableViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmationTextField: UITextField!
+    @IBOutlet weak var doneButtonPressed: UIButton!
     
     @IBOutlet weak var nameTableViewCell: UITableViewCell!
     @IBOutlet weak var confirmationTableViewCell: UITableViewCell!
@@ -57,11 +63,15 @@ class LoginViewController: UITableViewController {
         passwordTableViewCell.frame.size.height = 60
         doneTableViewCell.frame.size.height = 69
         
+        self.doneButtonPressed.titleLabel?.text = "Sign Up!"
+        
         //easter egg
         if counter >= 4 {
             
         }
     }
+    
+    
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         //unhide cells that contain text fields
@@ -73,6 +83,8 @@ class LoginViewController: UITableViewController {
         nameTableViewCell.frame.size.height = 0
         confirmationTableViewCell.frame.size.height = 0
         
+        self.doneButtonPressed.titleLabel?.text = "Login!"
+
         //easter egg
         if counter >= 4 {
         
@@ -142,6 +154,8 @@ class LoginViewController: UITableViewController {
             FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
                 if user != nil {
                     //perform segue
+                    self.navigationController?.popViewController(animated: true)
+                    self.dismiss(animated: true, completion: nil)
                 }
             }
         }
@@ -153,4 +167,14 @@ class LoginViewController: UITableViewController {
         print("Got some data for: \(dictionary)")
 
     }
+    
+    
 }
+
+extension UIColor {
+    
+    static func colorWithoutSweat(r: CGFloat, g: CGFloat, b: CGFloat) -> CGColor {
+        return UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1) as! CGColor
+    }
+}
+
