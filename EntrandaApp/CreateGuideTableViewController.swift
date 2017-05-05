@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseAuth
 
 
 class CreateGuideTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -47,7 +48,12 @@ class CreateGuideTableViewController: UITableViewController, UIImagePickerContro
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        performSegue(withIdentifier: "AuthUser", sender: nil)
+        if FIRAuth.auth()?.currentUser != nil {
+            let user = FIRAuth.auth()?.currentUser
+            print(user?.email!)
+        } else {
+            performSegue(withIdentifier: "AuthUser", sender: nil)
+        }
         
     }
     

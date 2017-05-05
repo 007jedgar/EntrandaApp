@@ -20,6 +20,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import Kingfisher
+import FirebaseAuth
 
 enum Section: Int {
     case createNewChannelSection = 0
@@ -55,7 +56,12 @@ class MessageThreadTableViewController: UITableViewController {
         super.viewDidAppear(animated)
         self.tableView.reloadData()
         
-        performSegue(withIdentifier: "SignInFirst", sender: nil)
+        if FIRAuth.auth()?.currentUser != nil {
+            let user = FIRAuth.auth()?.currentUser
+            print("Found: \(String(describing: user?.email))")
+        } else {
+            performSegue(withIdentifier: "SignInFirst", sender: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -112,7 +118,9 @@ class MessageThreadTableViewController: UITableViewController {
         } else if (indexPath as NSIndexPath).section == Section.currentChannelsSection.rawValue {
             cell.textLabel?.text = channels[(indexPath as NSIndexPath).row].name
         }
-        
         return cell
     }
+    
+    
+    
 }

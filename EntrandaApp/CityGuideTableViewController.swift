@@ -12,8 +12,6 @@ import FirebaseDatabase
 import FirebaseStorage
 import Kingfisher
 
-
-
 class CityGuideTableViewController: UITableViewController {
 
     var cities = [City]()
@@ -76,7 +74,6 @@ class CityGuideTableViewController: UITableViewController {
         sendToCityDB()
     }
 
-    
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
