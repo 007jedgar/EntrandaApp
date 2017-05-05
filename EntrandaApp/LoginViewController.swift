@@ -11,18 +11,14 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 
-enum SignInOptions {
-    case login
-    case signup
-}
-
 class LoginViewController: UITableViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmationTextField: UITextField!
-    @IBOutlet weak var doneButtonPressed: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var authOptionSegmentControll: UISegmentedControl!
     
     @IBOutlet weak var nameTableViewCell: UITableViewCell!
     @IBOutlet weak var confirmationTableViewCell: UITableViewCell!
@@ -51,44 +47,36 @@ class LoginViewController: UITableViewController {
         self.emailTableViewCell.frame.size.height = 0
         self.passwordTableViewCell.frame.size.height = 0
         self.doneTableViewCell.frame.size.height = 0
+        self.authOptionSegmentControll.frame.size.height = 36
     }
-
-    @IBAction func signupButtonPressed(_ sender: Any) {
-        //unhide cells that contain text fields
-        counter += 1
-        isRegistered = false
-        nameTableViewCell.frame.size.height = 60
-        confirmationTableViewCell.frame.size.height = 60
-        emailTableViewCell.frame.size.height = 60
-        passwordTableViewCell.frame.size.height = 60
-        doneTableViewCell.frame.size.height = 69
+    
+    @IBAction func authIndexChanged(_ sender: Any) {
         
-        self.doneButtonPressed.titleLabel?.text = "Sign Up!"
-        
-        //easter egg
-        if counter >= 4 {
+        switch authOptionSegmentControll.selectedSegmentIndex {
+        case 0:
+            isRegistered = true
+            emailTableViewCell.frame.size.height = 60
+            passwordTableViewCell.frame.size.height = 60
+            doneTableViewCell.frame.size.height = 69
+            nameTableViewCell.frame.size.height = 0
+            confirmationTableViewCell.frame.size.height = 0
+            changeButtonText(text: "Login")
+        case 1:
+            isRegistered = false
+            doneTableViewCell.frame.size.height = 69
+            nameTableViewCell.frame.size.height = 60
+            emailTableViewCell.frame.size.height = 60
+            passwordTableViewCell.frame.size.height = 60
+            confirmationTableViewCell.frame.size.height = 60
+            changeButtonText(text: "Sign Up")
             
+        default:
+            break
         }
     }
     
-    
-    
-    @IBAction func loginButtonPressed(_ sender: Any) {
-        //unhide cells that contain text fields
-        counter += 1
-        isRegistered = true
-        emailTableViewCell.frame.size.height = 60
-        passwordTableViewCell.frame.size.height = 60
-        doneTableViewCell.frame.size.height = 69
-        nameTableViewCell.frame.size.height = 0
-        confirmationTableViewCell.frame.size.height = 0
-        
-        self.doneButtonPressed.titleLabel?.text = "Login!"
-
-        //easter egg
-        if counter >= 4 {
-        
-        }
+    func changeButtonText(text: String) {
+        self.doneButton.setTitle(text, for: .normal)
     }
     
     //login or signup auth field completed
@@ -107,11 +95,61 @@ class LoginViewController: UITableViewController {
         let passwordsDontMatchAlert = UIAlertController(title: "Passwords Don't Match", message: "Check out your passwords...let's get this right now", preferredStyle: .alert)
         passwordsDontMatchAlert.addAction(okAction)
         
-        //checks for empty text fields
-        guard let name = self.nameTextField.text, !name.isEmpty else {
-            present(nameAlert, animated: true, completion: nil)
-            return
-        }
+        //For Sign up
+        if authOptionSegmentControll.selectedSegmentIndex == 1 {
+            guard let name = self.nameTextField.text, !name.isEmpty else {
+                present(nameAlert, animated: true, completion: nil)
+                return
+            }
+            guard let email = self.emailTextField.text, !email.isEmpty else {
+                present(emailAlert, animated: true, completion: nil)
+                return
+            }
+            guard let password = self.passwordTextField.text, !password.isEmpty else {
+                present(passwordAlert, animated: true, completion: nil)
+                return
+            }
+            guard let confirmation = self.confirmationTextField.text, !confirmation.isEmpty, confirmation == password else {
+                present(passwordsDontMatchAlert,animated: true, completion: nil)
+                return
+            }
+            let guide = Guide(name: name, email: email, password: confirmation)
+            print("\(guide.name, guide.email)")
+            authorizeUser(authInfo: guide)
+            
+            //Firebase Authentication
+            FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
+                if error != nil {
+                    if let errCode = FIRAuthErrorCode(rawValue: error!._code) {
+                        switch errCode {
+                        case .errorCodeEmailAlreadyInUse:
+                            print("email already in user")
+                        case .errorCodeWeakPassword:
+                            print("Weak password bruh")
+                        default:
+                            print("Auth failed: \(String(describing: error))")
+                            break
+                        }
+                    }
+                    return
+                } else {
+                    FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
+                        FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
+                            if user != nil {
+                                //perform segue
+                                self.navigationController?.popViewController(animated: true)
+                                self.dismiss(animated: true, completion: nil)
+                            }
+                        }
+                    }
+                }
+                //This is where the code inside the completion block was before...???
+            }
+
+        } else { //For Login
+
+        self.nameTextField.text = nil
+        self.confirmationTextField.text = nil
         guard let email = self.emailTextField.text, !email.isEmpty else {
             present(emailAlert, animated: true, completion: nil)
             return
@@ -120,34 +158,7 @@ class LoginViewController: UITableViewController {
             present(passwordAlert, animated: true, completion: nil)
             return
         }
-        guard let confirmation = self.confirmationTextField.text, !confirmation.isEmpty, confirmation == password else {
-            present(passwordsDontMatchAlert,animated: true, completion: nil)
-            return
-        }
-        
-        //checks if signup or login was selected
-        if self.isRegistered == false {
-        let guide = Guide(name: name, email: email, password: confirmation)
-        print("\(guide.name, guide.email)")
-        authorizeUser(authInfo: guide)
-        
-            //Firebase Authentication
-        FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
-
-            if error != nil {
-                print("Auth failed")
-                return
-            }else{}
-            FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
-                //auth listener waits for user to be authenticated to perform segue
-                FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
-                    if user != nil {
-                        //perform segue
-                        }
-                    }
-                }
-            }
-        } else {
+    
             FIRAuth.auth()!.signIn(withEmail: email,
                                    password: password)
                             //auth listener waits for user to be authenticated to perform segue
@@ -165,14 +176,11 @@ class LoginViewController: UITableViewController {
     func authorizeUser(authInfo: Guide) {
         let dictionary = ["name": authInfo.name, "email": authInfo.email]
         print("Got some data for: \(dictionary)")
-
     }
-    
-    
 }
 
+//Was really just testing this out
 extension UIColor {
-    
     static func colorWithoutSweat(r: CGFloat, g: CGFloat, b: CGFloat) -> CGColor {
         return UIColor(red: r/255.0, green: g/255.0, blue: b/255.0, alpha: 1) as! CGColor
     }

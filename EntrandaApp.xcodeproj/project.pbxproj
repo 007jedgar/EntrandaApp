@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1320E19D1EBA29EA009607A3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1320E19C1EBA29EA009607A3 /* ChatViewController.swift */; };
 		40A9CB7A2C6734EC89541C57 /* Pods_EntrandaApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1AD94A4ABBD68B0AD53386 /* Pods_EntrandaApp.framework */; };
 		AB1661011E98378000E5B1E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1661001E98378000E5B1E5 /* AppDelegate.swift */; };
 		AB1661031E98378000E5B1E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1661021E98378000E5B1E5 /* ViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1320E19C1EBA29EA009607A3 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		4C1AD94A4ABBD68B0AD53386 /* Pods_EntrandaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EntrandaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD30965465D8AA787851EBD /* Pods-EntrandaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntrandaApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EntrandaApp/Pods-EntrandaApp.debug.xcconfig"; sourceTree = "<group>"; };
 		AB1660FD1E98378000E5B1E5 /* EntrandaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EntrandaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +171,7 @@
 			children = (
 				AB7F88121EAAB1EB002C8383 /* LoginViewController.swift */,
 				AB6323191E9844A30077B993 /* MessageThreadTableViewController.swift */,
+				1320E19C1EBA29EA009607A3 /* ChatViewController.swift */,
 			);
 			name = "Personal View Controllers";
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				ABFF11641E9FC925004A8BC0 /* GuideProfileTableViewController.swift in Sources */,
 				ABFF115F1E9FC69D004A8BC0 /* GuideTableViewController.swift in Sources */,
 				ABA1AB791EAEE245001425D7 /* MessageManager.swift in Sources */,
+				1320E19D1EBA29EA009607A3 /* ChatViewController.swift in Sources */,
 				AB1661011E98378000E5B1E5 /* AppDelegate.swift in Sources */,
 				AB7686461E9AC49400C7EA3D /* MessageThreadCell.swift in Sources */,
 				AB7686481E9AC68B00C7EA3D /* LetsGoViewController.swift in Sources */,

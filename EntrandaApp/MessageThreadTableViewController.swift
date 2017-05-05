@@ -38,7 +38,7 @@ class MessageThreadTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "RW RIC"
+        title = "Messages"
         observeChannels()
     }
     
@@ -54,6 +54,15 @@ class MessageThreadTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.tableView.reloadData()
+        
+        performSegue(withIdentifier: "SignInFirst", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "SignInFirst" {
+            //do what?
+        }
     }
 
     // MARK: Firebase related methods
