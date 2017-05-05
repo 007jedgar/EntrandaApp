@@ -103,7 +103,6 @@ class CityGuideTableViewController: UITableViewController {
         }
         return cell
     }
-
     //sends city object to GuideTableViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

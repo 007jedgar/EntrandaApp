@@ -27,16 +27,9 @@ class LoginViewController: UITableViewController {
     @IBOutlet weak var doneTableViewCell: UITableViewCell!
     var isRegistered: Bool = false
     
-    var counter = 0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.confirmationTableViewCell.frame.size.height = 0
-        self.nameTableViewCell.frame.size.height = 0
-        self.emailTableViewCell.frame.size.height = 0
-        self.passwordTableViewCell.frame.size.height = 0
-        self.doneTableViewCell.frame.size.height = 0
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,9 +37,9 @@ class LoginViewController: UITableViewController {
         //should hide the cells
         self.confirmationTableViewCell.frame.size.height = 0
         self.nameTableViewCell.frame.size.height = 0
-        self.emailTableViewCell.frame.size.height = 0
-        self.passwordTableViewCell.frame.size.height = 0
-        self.doneTableViewCell.frame.size.height = 0
+        self.emailTableViewCell.frame.size.height = 60
+        self.passwordTableViewCell.frame.size.height = 60
+        self.doneTableViewCell.frame.size.height = 69
         self.authOptionSegmentControll.frame.size.height = 36
     }
     
@@ -69,7 +62,6 @@ class LoginViewController: UITableViewController {
             passwordTableViewCell.frame.size.height = 60
             confirmationTableViewCell.frame.size.height = 60
             changeButtonText(text: "Sign Up")
-            
         default:
             break
         }
@@ -95,7 +87,7 @@ class LoginViewController: UITableViewController {
         let passwordsDontMatchAlert = UIAlertController(title: "Passwords Don't Match", message: "Check out your passwords...let's get this right now", preferredStyle: .alert)
         passwordsDontMatchAlert.addAction(okAction)
         
-        //For Sign up
+        //For Sign up login or signup? Segment index 1 is signup
         if authOptionSegmentControll.selectedSegmentIndex == 1 {
             guard let name = self.nameTextField.text, !name.isEmpty else {
                 present(nameAlert, animated: true, completion: nil)
@@ -143,10 +135,8 @@ class LoginViewController: UITableViewController {
                         }
                     }
                 }
-                //This is where the code inside the completion block was before...???
             }
-
-        } else { //For Login
+        } else { //For Login 
 
         self.nameTextField.text = nil
         self.confirmationTextField.text = nil
@@ -158,13 +148,16 @@ class LoginViewController: UITableViewController {
             present(passwordAlert, animated: true, completion: nil)
             return
         }
-    
-            FIRAuth.auth()!.signIn(withEmail: email,
-                                   password: password)
-                            //auth listener waits for user to be authenticated to perform segue
-            FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
-                if user != nil {
-                    //perform segue
+
+            FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
+
+                if error != nil { //There's an error...
+                    let loginAlert = UIAlertController(title: "Uh Oh...", message: "\(error.debugDescription)", preferredStyle: .alert)
+                    let gotchaAlert = UIAlertAction(title: "Gotcha!", style: .default, handler: nil)
+                    loginAlert.addAction(gotchaAlert)
+                    print("Error: \(error.debugDescription)")
+                    
+                    } else { //Everything's good!
                     self.navigationController?.popViewController(animated: true)
                     self.dismiss(animated: true, completion: nil)
                 }
@@ -172,7 +165,7 @@ class LoginViewController: UITableViewController {
         }
     }
     
-    //Random useless function...
+    //Random useless function...checks object
     func authorizeUser(authInfo: Guide) {
         let dictionary = ["name": authInfo.name, "email": authInfo.email]
         print("Got some data for: \(dictionary)")
