@@ -54,15 +54,15 @@ class MessageThreadTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        channels.append(Channel(id: "1", name: "Channel1"))
-        channels.append(Channel(id: "2", name: "Channel2"))
-        channels.append(Channel(id: "3", name: "Channel3"))
+        channels.removeAll()
+        channels.append(Channel(id: "1", name: "Melissa Pruett"))
+        channels.append(Channel(id: "2", name: "Steven Yuen"))
+        channels.append(Channel(id: "3", name: "Gustavo Herlo"))
         self.tableView.reloadData()
         
         if FIRAuth.auth()?.currentUser != nil {
-            let user = FIRAuth.auth()?.currentUser
-            print("Found: \(String(describing: user?.email))")
+            //let user = FIRAuth.auth()?.currentUser
+            //print("Found: \(String(describing: user?.email))")
         } else {
             performSegue(withIdentifier: "SignInFirst", sender: nil)
         }

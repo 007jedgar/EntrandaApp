@@ -24,6 +24,13 @@ class GuideTableViewControl: UITableViewController {
         populateGuide()
         self.tableView.reloadData()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let cityTitle = self.city.cityTitle
+        self.navigationItem.title = cityTitle
+    }
 
     //Pull from Firebase -> guides -> self.tableView
     func populateGuide() {

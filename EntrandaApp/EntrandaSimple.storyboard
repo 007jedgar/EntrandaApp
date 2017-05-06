@@ -780,7 +780,7 @@
                                                         <color key="titleColor" red="0.30690410733222961" green="0.6359524130821228" blue="0.65926164388656616" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="Pcs-6Q-ndV" kind="show" id="Tt9-8i-uT2"/>
+                                                        <segue destination="hhL-St-OkC" kind="show" id="VMw-8q-IZr"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -841,13 +841,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlankCell" id="nZf-2H-gdh">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExistingChannel" id="nZf-2H-gdh">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nZf-2H-gdh" id="ImC-fN-deu">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="XH9-HR-F3E" kind="show" id="gcV-bA-rfs"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewChannel" rowHeight="65" id="Rzd-OK-j6L">
                                 <rect key="frame" x="0.0" y="72" width="375" height="65"/>
@@ -856,9 +859,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="XH9-HR-F3E" kind="show" id="gpM-W8-XVh"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -892,25 +892,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bVY-Il-jHV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="224.80000000000001" y="-161.46926536731635"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="4KK-Qs-9IC">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pcs-6Q-ndV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="zpH-aS-N0m"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dxe-iT-yV9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="hhL-St-OkC" kind="relationship" relationship="rootViewController" id="LXY-Ch-NPf"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hz9-Yi-iIb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3286" y="851"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

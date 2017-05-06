@@ -51,6 +51,14 @@ class GuideProfileTableViewControll: UITableViewController {
         self.profileImgView.clipsToBounds = true
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let guideName = self.guide.name
+        self.navigationItem.title = guideName
+        
+    }
 
     // Populate the guide profile page
     @IBAction func backButtonPressed(_ sender: Any) {
