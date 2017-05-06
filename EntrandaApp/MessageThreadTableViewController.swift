@@ -54,6 +54,10 @@ class MessageThreadTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        channels.append(Channel(id: "1", name: "Channel1"))
+        channels.append(Channel(id: "2", name: "Channel2"))
+        channels.append(Channel(id: "3", name: "Channel3"))
         self.tableView.reloadData()
         
         if FIRAuth.auth()?.currentUser != nil {
@@ -61,13 +65,6 @@ class MessageThreadTableViewController: UITableViewController {
             print("Found: \(String(describing: user?.email))")
         } else {
             performSegue(withIdentifier: "SignInFirst", sender: nil)
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "SignInFirst" {
-            //do what?
         }
     }
 
@@ -90,9 +87,19 @@ class MessageThreadTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 2
     }
-
+    
+    @IBAction func createChannel(_ sender: AnyObject) {
+        if let name = newChannelTextField?.text {
+            let newChannelRef = channelRef.childByAutoId()
+            let channelItem = [
+                "name": name
+            ]
+            newChannelRef.setValue(channelItem)
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let currentSection: Section = Section(rawValue: section) {
             switch currentSection {
@@ -121,6 +128,22 @@ class MessageThreadTableViewController: UITableViewController {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if let channel = sender as? Channel {
+            let chatVc = segue.destination as! ChatViewController
+            
+            chatVc.senderDisplayName = senderDisplayName
+            chatVc.channel = channel
+            chatVc.channelRef = channelRef.child(channel.id)
+        }
+    }
     
-    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        
+//        if segue.identifier == "SignInFirst" {
+//            //do what?
+//        }
+//    }
 }

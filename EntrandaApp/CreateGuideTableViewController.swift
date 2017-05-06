@@ -50,11 +50,12 @@ class CreateGuideTableViewController: UITableViewController, UIImagePickerContro
         
         if FIRAuth.auth()?.currentUser != nil {
             let user = FIRAuth.auth()?.currentUser
-            print(user?.email!)
+//            print(user?.email!)
         } else {
             performSegue(withIdentifier: "AuthUser", sender: nil)
         }
         
+        self.title = "Create a Guide"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

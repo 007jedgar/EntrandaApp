@@ -340,7 +340,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gVE-OE-IYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4212" y="-185"/>
+            <point key="canvasLocation" x="4180" y="-161"/>
         </scene>
         <!--Create Guide Table View Controller-->
         <scene sceneID="06p-f7-zG2">
@@ -780,7 +780,7 @@
                                                         <color key="titleColor" red="0.30690410733222961" green="0.6359524130821228" blue="0.65926164388656616" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="ipP-lo-fNT" kind="show" id="g07-lx-OTk"/>
+                                                        <segue destination="Pcs-6Q-ndV" kind="show" id="Tt9-8i-uT2"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -830,27 +830,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uCw-RA-4ce" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4212" y="1290"/>
+            <point key="canvasLocation" x="5311" y="851"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="ckV-3q-LFE">
-            <objects>
-                <tabBarController id="ipP-lo-fNT" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="Ecn-Ka-uJh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="hhL-St-OkC" kind="relationship" relationship="viewControllers" id="Wod-Jl-M2V"/>
-                        <segue destination="XH9-HR-F3E" kind="relationship" relationship="viewControllers" id="P0B-6E-3Bh"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="o1A-0S-W1E" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3286" y="882"/>
-        </scene>
-        <!--Item-->
+        <!--Message Thread Table View Controller-->
         <scene sceneID="abO-HR-mQk">
             <objects>
                 <tableViewController id="hhL-St-OkC" customClass="MessageThreadTableViewController" customModule="EntrandaApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -874,6 +856,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="XH9-HR-F3E" kind="show" id="gpM-W8-XVh"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -881,14 +866,14 @@
                             <outlet property="delegate" destination="hhL-St-OkC" id="L0o-DS-20d"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="zpH-aS-N0m"/>
+                    <navigationItem key="navigationItem" id="do0-j7-gTK"/>
                     <connections>
                         <segue destination="o5M-xl-X4f" kind="presentation" identifier="SignInFirst" id="KiF-78-1Pj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="300-mV-jXN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4212" y="572.56371814092961"/>
+            <point key="canvasLocation" x="4180" y="851"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tJP-uF-iJO">
@@ -907,6 +892,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bVY-Il-jHV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="224.80000000000001" y="-161.46926536731635"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="4KK-Qs-9IC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pcs-6Q-ndV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="zpH-aS-N0m"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dxe-iT-yV9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hhL-St-OkC" kind="relationship" relationship="rootViewController" id="LXY-Ch-NPf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hz9-Yi-iIb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3286" y="851"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

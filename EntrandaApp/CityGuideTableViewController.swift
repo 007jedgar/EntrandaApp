@@ -25,6 +25,12 @@ class CityGuideTableViewController: UITableViewController {
         readDB()
         self.tableView.reloadData()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.title = "Entranda"
+    }
 
     //Sends city
     func sendToCityDB() {
@@ -57,7 +63,6 @@ class CityGuideTableViewController: UITableViewController {
                 self.cities.append(city)
                 
                 DispatchQueue.main.async {
-                    
                     self.tableView.reloadData()
                 }
             }
