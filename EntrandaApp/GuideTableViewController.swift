@@ -98,7 +98,7 @@ class GuideTableViewControl: UITableViewController {
                 
                 vc.guide = guide
                 
-                print("Found: \(guide.pictureURL)")
+                //print("Found: \(guide.pictureURL)")
             }
         }
     }

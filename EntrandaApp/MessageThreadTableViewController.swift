@@ -36,11 +36,12 @@ class MessageThreadTableViewController: UITableViewController {
     private var channels: [Channel] = []
     
     var ref: FIRDatabaseReference!
-    
+    var count : Int = 1
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Messages"
         observeChannels()
+        startConvo()
     }
     
     deinit {
@@ -49,15 +50,25 @@ class MessageThreadTableViewController: UITableViewController {
         }
     }
     
+    func startConvo() {
+        let convoRef = ref?.child("conversations").childByAutoId()
+        let messagesRef = convoRef?.child("conversations")
+        let textMsgRef = messagesRef?.child("message")
+        convoRef?.child("last message").setValue("hey")
+        
+        //let textMsgRef = messagesRef?.child("message\(count)")
+        textMsgRef?.child("text").setValue("hey")
+        textMsgRef?.child("time sent").setValue("10:34am")
+        textMsgRef?.child("sender").setValue("user1")
+
+    }
+    
     private lazy var channelRef: FIRDatabaseReference = FIRDatabase.database().reference().child("channels")
     private var channelRefHandle: FIRDatabaseHandle?
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        channels.removeAll()
-        channels.append(Channel(id: "1", name: "Melissa Pruett"))
-        channels.append(Channel(id: "2", name: "Steven Yuen"))
-        channels.append(Channel(id: "3", name: "Gustavo Herlo"))
+
         self.tableView.reloadData()
         
         if FIRAuth.auth()?.currentUser != nil {
@@ -73,6 +84,7 @@ class MessageThreadTableViewController: UITableViewController {
         // Use the observe method to listen for new
         // channels being written to the Firebase DB
         channelRefHandle = channelRef.observe(.childAdded, with: { (snapshot) -> Void in
+            
             let channelData = snapshot.value as! Dictionary<String, AnyObject>
             let id = snapshot.key
             if let name = channelData["name"] as! String!, name.characters.count > 0 {
@@ -83,6 +95,8 @@ class MessageThreadTableViewController: UITableViewController {
             }
         })
     }
+    
+    
 
     // MARK: - Table view data source
 
@@ -139,11 +153,4 @@ class MessageThreadTableViewController: UITableViewController {
             chatVc.channelRef = channelRef.child(channel.id)
         }
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        
-//        if segue.identifier == "SignInFirst" {
-//            //do what?
-//        }
-//    }
 }

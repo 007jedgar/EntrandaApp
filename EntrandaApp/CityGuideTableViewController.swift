@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseAuth
 import Kingfisher
 
 class CityGuideTableViewController: UITableViewController {
@@ -24,6 +25,8 @@ class CityGuideTableViewController: UITableViewController {
         sendToCityDB()
         readDB()
         self.tableView.reloadData()
+//        startConvo()
+//        addChannel()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -31,7 +34,30 @@ class CityGuideTableViewController: UITableViewController {
         
         self.title = "Entranda"
     }
+    
+    func startConvo() {
+        let convoRef = ref?.child("conversations").childByAutoId()
+        let messagesRef = convoRef?.child("messages")
+        let textMsgRef = messagesRef?.child("message")
+        convoRef?.child("last message").setValue("hey")
+        
+        //let textMsgRef = messagesRef?.child("message\(count)")
+        textMsgRef?.child("text").setValue("hey")
+        textMsgRef?.child("time sent").setValue("10:34am")
+        textMsgRef?.child("sender").setValue("user1")
+        
+        
+    }
 
+    func addChannel() {
+    let current = FIRAuth.auth()?.currentUser?.uid
+    let channelCredentialRef = ref?.child("guide").child(current!)
+    let channeliDRef = channelCredentialRef?.child("channels").childByAutoId()
+    channeliDRef?.child("user0").setValue("Bill")
+    channeliDRef?.child("user1").setValue("Tammy")
+    channeliDRef?.child("user2").setValue("Sam")
+    
+    }
     //Sends city
     func sendToCityDB() {
         ref = FIRDatabase.database().reference()

@@ -70,9 +70,9 @@ class CreateGuideTableViewController: UITableViewController, UIImagePickerContro
 
     //sends class to to firebase
     func sendGuideInfo(guideInfo: Guide) {
-        
+        let currentUserUID = FIRAuth.auth()?.currentUser?.uid
         self.ref = FIRDatabase.database().reference().child("guide")
-        let guide = self.ref.childByAutoId()
+        let guide = self.ref.child(currentUserUID!)
         
         guide.setValue(guideInfo.toDictionary())
 

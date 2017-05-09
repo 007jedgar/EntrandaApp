@@ -12,8 +12,8 @@ import FirebaseDatabase
 import JSQMessagesViewController
 
 final class ChatViewController: JSQMessagesViewController {
-    
-    var channelRef: FIRDatabaseReference?
+
+    var channelRef: FIRDatabaseReference!
     var channel: Channel? {
         didSet {
             title = channel?.name
@@ -55,8 +55,8 @@ final class ChatViewController: JSQMessagesViewController {
         let message = messages[indexPath.item]
         if message.senderId == senderId {
             return outgoingBubbleImageView
-        } else { 
-            return incomingBubbleImageView
+            } else {
+                return incomingBubbleImageView
         }
     }
     
@@ -103,7 +103,7 @@ final class ChatViewController: JSQMessagesViewController {
     }
     
     private func observeMessages() {
-        messageRef = channelRef!.child("messages")
+        messageRef = (channelRef?.child("messages"))!
         let messageQuery = messageRef.queryLimited(toLast:25)
         
         // observe1 method to listen for new
@@ -115,8 +115,8 @@ final class ChatViewController: JSQMessagesViewController {
                 self.addMessage(withId: id, name: name, text: text)
                 
                 self.finishReceivingMessage()
-            } else {
-                print("Error! Could not decode message data")
+                } else {
+                    print("Error! Could not decode message data")
             }
         })
     }
@@ -126,15 +126,15 @@ final class ChatViewController: JSQMessagesViewController {
         return nil
     }
     
-    //chages color of text for text bubbles
+    //chages color of text for textbubbles
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
         let message = messages[indexPath.item]
         
         if message.senderId == senderId {
             cell.textView?.textColor = UIColor.white
-        } else {
-            cell.textView?.textColor = UIColor.black
+            } else {
+                cell.textView?.textColor = UIColor.black
         }
         return cell
     }
