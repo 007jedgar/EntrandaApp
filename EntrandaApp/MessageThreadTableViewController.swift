@@ -33,7 +33,7 @@ class MessageThreadTableViewController: UITableViewController {
     // MARK: Properties
     var senderDisplayName: String?
     var newChannelTextField: UITextField?
-    private var channels: [Channel] = []
+    var channels = [Channel]()
     
     var ref: FIRDatabaseReference!
     var count : Int = 1
@@ -41,16 +41,11 @@ class MessageThreadTableViewController: UITableViewController {
         super.viewDidLoad()
         title = "Messages"
         observeChannels()
-        startConvo()
+        makeConversation()
     }
     
-    deinit {
-        if let refHandle = channelRefHandle {
-            channelRef.removeObserver(withHandle: refHandle)
-        }
-    }
-    
-    func startConvo() {
+
+    func makeConversation() {
         let convoRef = ref?.child("conversations").childByAutoId()
         let messagesRef = convoRef?.child("conversations")
         let textMsgRef = messagesRef?.child("message")
@@ -63,8 +58,6 @@ class MessageThreadTableViewController: UITableViewController {
 
     }
     
-    private lazy var channelRef: FIRDatabaseReference = FIRDatabase.database().reference().child("channels")
-    private var channelRefHandle: FIRDatabaseHandle?
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -83,15 +76,17 @@ class MessageThreadTableViewController: UITableViewController {
     private func observeChannels() {
         // Use the observe method to listen for new
         // channels being written to the Firebase DB
-        channelRefHandle = channelRef.observe(.childAdded, with: { (snapshot) -> Void in
-            
-            let channelData = snapshot.value as! Dictionary<String, AnyObject>
-            let id = snapshot.key
-            if let name = channelData["name"] as! String!, name.characters.count > 0 {
-                self.channels.append(Channel(id: id, name: name))
-                self.tableView.reloadData()
-            } else {
-                print("Error! Could not decode channel data")
+        let currentUser = FIRAuth.auth()?.currentUser?.uid
+        
+        ref = FIRDatabase.database().reference().child("user")
+        let channelRef = ref.child(currentUser!).child("channels")
+        channelRef.observe(.value, with: { (snapshot: FIRDataSnapshot) in
+//                let channelDictionary = snapshot.value as! [String: Any]
+//                print("Found: \(channelDictionary)")
+            for i in snapshot.children {
+                let channel = snapshot.value as! [String: Any]
+                print(channel["channel1"]!)
+                
             }
         })
     }
@@ -101,44 +96,32 @@ class MessageThreadTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     @IBAction func createChannel(_ sender: AnyObject) {
-        if let name = newChannelTextField?.text {
-            let newChannelRef = channelRef.childByAutoId()
-            let channelItem = [
-                "name": name
-            ]
-            newChannelRef.setValue(channelItem)
-        }
+//        let addCahnnelAlertControler = UIAlertController(title: "NewChannel", message: "enter a channel name", preferredStyle: .alert)
+//        let doneButton = UIAlertAction(title: "Done", style: .default, handler: nil)
+//        addCahnnelAlertControler.addAction(doneButton)
+//        let textField = addCahnnelAlertControler.textFields?[0]
+//        textField?.placeholder = "channel name"
+//        
+//        if let name = newChannelTextField?.text {
+//            let newChannelRef = channelRef.childByAutoId()
+//            let channelItem = [
+//                "name": name
+//            ]
+//            newChannelRef.setValue(channelItem)
+//        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let currentSection: Section = Section(rawValue: section) {
-            switch currentSection {
-            case .createNewChannelSection:
-                return 1
-            case .currentChannelsSection:
-                return channels.count
-            }
-        } else {
-            return 0
-        }
+        return channels.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let reuseIdentifier = (indexPath as NSIndexPath).section == Section.createNewChannelSection.rawValue ? "NewChannel" : "ExistingChannel"
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-        
-        if (indexPath as NSIndexPath).section == Section.createNewChannelSection.rawValue {
-            if let createNewChannelCell = cell as? CreateChannelCell {
-                newChannelTextField = createNewChannelCell.newChannelNameField
-            }
-        } else if (indexPath as NSIndexPath).section == Section.currentChannelsSection.rawValue {
-            cell.textLabel?.text = channels[(indexPath as NSIndexPath).row].name
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ExistingChannel", for: indexPath) as! ThreadTableViewCell
+
         return cell
     }
     
@@ -148,9 +131,6 @@ class MessageThreadTableViewController: UITableViewController {
         if let channel = sender as? Channel {
             let chatVc = segue.destination as! ChatViewController
             
-            chatVc.senderDisplayName = senderDisplayName
-            chatVc.channel = channel
-            chatVc.channelRef = channelRef.child(channel.id)
         }
     }
 }

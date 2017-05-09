@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 import FirebaseDatabase
 
 class GuideProfileTableViewControll: UITableViewController {
@@ -57,6 +58,16 @@ class GuideProfileTableViewControll: UITableViewController {
         
         let guideName = self.guide.name
         self.navigationItem.title = guideName
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "DirectMessage" {
+            let current  = FIRAuth.auth()?.currentUser?.uid
+            
+            
+        }
         
     }
 

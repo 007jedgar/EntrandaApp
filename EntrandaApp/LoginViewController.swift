@@ -26,7 +26,8 @@ class LoginViewController: UITableViewController {
     @IBOutlet weak var passwordTableViewCell: UITableViewCell!
     @IBOutlet weak var doneTableViewCell: UITableViewCell!
     var isRegistered: Bool = false
-    
+    var ref: FIRDatabaseReference!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -129,6 +130,18 @@ class LoginViewController: UITableViewController {
                         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
                             if user != nil {
                                 //perform segue
+                                let currentUserUID = FIRAuth.auth()?.currentUser?.uid
+                                let Userref = FIRDatabase.database().reference().child("user")
+                                
+                                let date = Date()
+                                let formatter = DateFormatter()
+                                formatter.dateFormat = "dd.MM.yyyy"
+                                let timeCreated = formatter.string(from: date)
+                                
+                                let currentUserRef = Userref.child(currentUserUID!)
+                                currentUserRef.child("name").setValue("\(guide.name)")
+                                let channelsRef = currentUserRef.child("channels")
+                                channelsRef.child("channel1").setValue("")
                                 self.navigationController?.popViewController(animated: true)
                                 self.dismiss(animated: true, completion: nil)
                             }

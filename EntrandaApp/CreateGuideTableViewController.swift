@@ -68,14 +68,17 @@ class CreateGuideTableViewController: UITableViewController, UIImagePickerContro
 
     // MARK: - Table view data source
 
-    //sends class to to firebase
+    //sends object to to firebase
     func sendGuideInfo(guideInfo: Guide) {
         let currentUserUID = FIRAuth.auth()?.currentUser?.uid
         self.ref = FIRDatabase.database().reference().child("guide")
-        let guide = self.ref.child(currentUserUID!)
-        
-        guide.setValue(guideInfo.toDictionary())
+        let guideRef = self.ref.child(currentUserUID!)
+        //sets values in database from dictionary method in entranData
+        guideRef.setValue(guideInfo.toDictionary())
 
+        //For user ref
+        let userRef = ref.child("user")
+        
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
         print("sent to DB")
@@ -88,7 +91,7 @@ class CreateGuideTableViewController: UITableViewController, UIImagePickerContro
         var message : String = "Check out your required fields"
         let notFinishedAlert = UIAlertController(title: "Empty Fields", message: "Almost: \(message)", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) in
-            //
+
         }
         notFinishedAlert.addAction(okAction)
 
@@ -197,9 +200,10 @@ class CreateGuideTableViewController: UITableViewController, UIImagePickerContro
         let userProfilePricturesRef = storage.reference().child("UserProfilePictures")
         let metaData = FIRStorageMetadata()
         metaData.contentType = "image/jpg"
-        let uuid = NSUUID().uuidString
+        let current = FIRAuth.auth()?.currentUser?.uid
+        //let uuid = NSUUID().uuidString
 
-        let filePath = ("\(uuid)")
+        let filePath = ("\(current!)")
         userProfilePricturesRef.child("\(filePath)").put((data as? Data)!, metadata: metaData) { (metadata, error) in
             if let error = error {
                 print(error.localizedDescription)

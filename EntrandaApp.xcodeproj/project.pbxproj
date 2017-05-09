@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1320E19D1EBA29EA009607A3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1320E19C1EBA29EA009607A3 /* ChatViewController.swift */; };
 		13EE45DF1EC1405400DAD2BF /* CurrentUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EE45DE1EC1405400DAD2BF /* CurrentUserViewController.swift */; };
+		13EE45E11EC209DE00DAD2BF /* ThreadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EE45E01EC209DE00DAD2BF /* ThreadTableViewCell.swift */; };
 		40A9CB7A2C6734EC89541C57 /* Pods_EntrandaApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C1AD94A4ABBD68B0AD53386 /* Pods_EntrandaApp.framework */; };
 		AB1661011E98378000E5B1E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1661001E98378000E5B1E5 /* AppDelegate.swift */; };
 		AB1661031E98378000E5B1E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1661021E98378000E5B1E5 /* ViewController.swift */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		1320E19C1EBA29EA009607A3 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		13EE45DE1EC1405400DAD2BF /* CurrentUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUserViewController.swift; sourceTree = "<group>"; };
+		13EE45E01EC209DE00DAD2BF /* ThreadTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadTableViewCell.swift; sourceTree = "<group>"; };
 		4C1AD94A4ABBD68B0AD53386 /* Pods_EntrandaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EntrandaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD30965465D8AA787851EBD /* Pods-EntrandaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntrandaApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EntrandaApp/Pods-EntrandaApp.debug.xcconfig"; sourceTree = "<group>"; };
 		AB1660FD1E98378000E5B1E5 /* EntrandaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EntrandaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +208,7 @@
 			children = (
 				ABFF115A1E9FC3C0004A8BC0 /* CityTableViewCell.swift */,
 				ABFF11611E9FC77F004A8BC0 /* GuideTableViewCell.swift */,
+				13EE45E01EC209DE00DAD2BF /* ThreadTableViewCell.swift */,
 				AB8403A21EA81BCB000708F9 /* EntranData.swift */,
 				ABA1AB781EAEE245001425D7 /* MessageManager.swift */,
 				AB2322E41EAEF6A20027483F /* CreateChannelCell.swift */,
@@ -344,6 +347,7 @@
 			files = (
 				AB7F88131EAAB1EB002C8383 /* LoginViewController.swift in Sources */,
 				ABFF11541E9D9517004A8BC0 /* SelfProfileViewController.swift in Sources */,
+				13EE45E11EC209DE00DAD2BF /* ThreadTableViewCell.swift in Sources */,
 				ABFF11521E9D94FA004A8BC0 /* EditProfileViewController.swift in Sources */,
 				AB1661031E98378000E5B1E5 /* ViewController.swift in Sources */,
 				ABFF11581E9ECD3A004A8BC0 /* CityGuideTableViewController.swift in Sources */,

@@ -37,7 +37,9 @@ class Guide {
             let name = dictionary["name"] as? String,
             let phoneNumber = dictionary["phone number"] as? String,
             let tourBio = dictionary["tour bio"] as? String,
-            let pictureURL = dictionary["pictureURL"] as? String
+            let pictureURL = dictionary["pictureURL"] as? String,
+            let location = dictionary["location"] as? String,
+            let bio = dictionary["bio"] as? String
             else {
                 fatalError("email is not found")
         }
@@ -49,6 +51,8 @@ class Guide {
         self.tourBio = tourBio
         self.phoneNumber = phoneNumber
         self.pictureURL = pictureURL
+        self.location = location
+        self.bio = bio
         
     }
     
