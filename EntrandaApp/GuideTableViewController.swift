@@ -83,7 +83,7 @@ class GuideTableViewControl: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedProfile = guides[indexPath.row]
-        print(guides[indexPath.row])
+        //print(guides[indexPath.row])
         performSegue(withIdentifier: "GuideProfile", sender: self)
     }
     
@@ -97,8 +97,6 @@ class GuideTableViewControl: UITableViewController {
                 let guide = guides[indexPath.row]
                 
                 vc.guide = guide
-                
-                //print("Found: \(guide.pictureURL)")
             }
         }
     }

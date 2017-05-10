@@ -31,18 +31,18 @@ class CurrentUserViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        populateProfile()
-
-        self.profileImgView.layer.cornerRadius = self.profileImgView.layer.frame.size.width / 7;
-        self.profileImgView.clipsToBounds = true
-        
+       
         if FIRAuth.auth()?.currentUser != nil {
-            logoutBarButtonItem.title = "logout"
+            populateProfile()
+            
+            self.profileImgView.layer.cornerRadius = self.profileImgView.layer.frame.size.width / 7;
+            self.profileImgView.clipsToBounds = true
+            
         } else {
-            logoutBarButtonItem.title = "sign in"
             performSegue(withIdentifier: "ProfileAuth", sender: nil)
         }
         self.navigationItem.title = "Profile"
+      
     }
     
     @IBAction func logout() {
@@ -54,6 +54,8 @@ class CurrentUserViewController: UITableViewController {
             print ("Error signing out: %@", signOutError)
             }
         }
+        
+        //present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
     }
     
     func populateProfile() {

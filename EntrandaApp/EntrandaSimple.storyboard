@@ -883,7 +883,7 @@
                                                         <color key="titleColor" red="0.30690410733222961" green="0.6359524130821228" blue="0.65926164388656616" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="OzI-O1-nUK" kind="show" identifier="DirectMessage" id="VMw-8q-IZr"/>
+                                                        <segue destination="hhL-St-OkC" kind="show" identifier="DirectMessage" id="fnz-xA-DU5"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -1062,7 +1062,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jpA-9v-XBc"/>
+        <segue reference="fnz-xA-DU5"/>
         <segue reference="KiF-78-1Pj"/>
     </inferredMetricsTieBreakers>
 </document>

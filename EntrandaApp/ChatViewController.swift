@@ -61,12 +61,12 @@ final class ChatViewController: JSQMessagesViewController {
     }
     
     // Set up for bubbles
-    private func setupOutgoingBubble() -> JSQMessagesBubbleImage {
+    private func setupOutgoingBubble() -> JSQMessagesBubbleImage {//current user
         let bubbleImageFactory = JSQMessagesBubbleImageFactory()
         return bubbleImageFactory!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
     }
     
-    private func setupIncomingBubble() -> JSQMessagesBubbleImage {
+    private func setupIncomingBubble() -> JSQMessagesBubbleImage {//other user
         let bubbleImageFactory = JSQMessagesBubbleImageFactory()
         return bubbleImageFactory!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
     }
@@ -109,7 +109,7 @@ final class ChatViewController: JSQMessagesViewController {
         // observe1 method to listen for new
         // messages being written to the Firebase DB
         newMessageRefHandle = messageQuery.observe(.childAdded, with: { (snapshot) -> Void in
-            let messageData = snapshot.value as! Dictionary<String, String>
+            let messageData = snapshot.value as! [String: String]
             
             if let id = messageData["senderId"] as String!, let name = messageData["senderName"] as String!, let text = messageData["text"] as String!, text.characters.count > 0 {
                 self.addMessage(withId: id, name: name, text: text)

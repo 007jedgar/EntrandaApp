@@ -22,11 +22,6 @@ import FirebaseDatabase
 import Kingfisher
 import FirebaseAuth
 
-enum Section: Int {
-    case createNewChannelSection = 0
-    case currentChannelsSection
-}
-
 
 class MessageThreadTableViewController: UITableViewController {
 
@@ -39,25 +34,9 @@ class MessageThreadTableViewController: UITableViewController {
     var count : Int = 1
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Messages"
+        title = "Conversations"
         observeChannels()
-        makeConversation()
     }
-    
-
-    func makeConversation() {
-        let convoRef = ref?.child("conversations").childByAutoId()
-        let messagesRef = convoRef?.child("conversations")
-        let textMsgRef = messagesRef?.child("message")
-        convoRef?.child("last message").setValue("hey")
-        
-        //let textMsgRef = messagesRef?.child("message\(count)")
-        textMsgRef?.child("text").setValue("hey")
-        textMsgRef?.child("time sent").setValue("10:34am")
-        textMsgRef?.child("sender").setValue("user1")
-
-    }
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -71,11 +50,22 @@ class MessageThreadTableViewController: UITableViewController {
             performSegue(withIdentifier: "SignInFirst", sender: nil)
         }
     }
+    
+    func makeConversation() {
+        let convoRef = ref?.child("conversations").childByAutoId()
+        let messagesRef = convoRef?.child("conversations")
+        let textMsgRef = messagesRef?.child("message")
+        convoRef?.child("last message").setValue("hey")
+        
+        //let textMsgRef = messagesRef?.child("message\(count)")
+        textMsgRef?.child("text").setValue("hey")
+        textMsgRef?.child("time sent").setValue("10:34am")
+        textMsgRef?.child("sender").setValue("user1")
+        
+    }
 
     // MARK: Firebase related methods
     private func observeChannels() {
-        // Use the observe method to listen for new
-        // channels being written to the Firebase DB
         let currentUser = FIRAuth.auth()?.currentUser?.uid
         
         ref = FIRDatabase.database().reference().child("user")
@@ -84,14 +74,15 @@ class MessageThreadTableViewController: UITableViewController {
 //                let channelDictionary = snapshot.value as! [String: Any]
 //                print("Found: \(channelDictionary)")
             for i in snapshot.children {
-                let channel = snapshot.value as! [String: Any]
-                print(channel["channel1"]!)
-                
+                let channelDictionary = snapshot.value as! [String: Any]
+                let channelName = channelDictionary["channel1"] as! String
+                let _channel = Channel(name: channelName)
+                self.channels.append(_channel)
             }
         })
+        
+        
     }
-    
-    
 
     // MARK: - Table view data source
 
@@ -100,19 +91,8 @@ class MessageThreadTableViewController: UITableViewController {
     }
     
     @IBAction func createChannel(_ sender: AnyObject) {
-//        let addCahnnelAlertControler = UIAlertController(title: "NewChannel", message: "enter a channel name", preferredStyle: .alert)
-//        let doneButton = UIAlertAction(title: "Done", style: .default, handler: nil)
-//        addCahnnelAlertControler.addAction(doneButton)
-//        let textField = addCahnnelAlertControler.textFields?[0]
-//        textField?.placeholder = "channel name"
-//        
-//        if let name = newChannelTextField?.text {
-//            let newChannelRef = channelRef.childByAutoId()
-//            let channelItem = [
-//                "name": name
-//            ]
-//            newChannelRef.setValue(channelItem)
-//        }
+
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -121,16 +101,10 @@ class MessageThreadTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExistingChannel", for: indexPath) as! ThreadTableViewCell
-
+        let channel = channels[indexPath.row]
+        cell.channelNameLabel.text = channel.name
+        
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
-        if let channel = sender as? Channel {
-            let chatVc = segue.destination as! ChatViewController
-            
-        }
-    }
 }
